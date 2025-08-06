@@ -1,0 +1,12 @@
+{
+  "title": "Fairground Balloon Pop",
+  "stem_md": "At the village fair, the balloon stall has $5$ golden balloons and $8$ silver balloons. The stall keeper pops balloons one by one until none are left. What is the probability that when the last golden balloon is popped, there are exactly $2$ silver balloons remaining?",
+  "hints": [
+    "Think about the sequence of balloons being popped and focus on the last few balloons.",
+    "Consider that the last golden balloon must be the third from the end, followed by two silver balloons.",
+    "Calculate the probability of the specific sequence where the last three balloons popped are golden, silver, silver in that order."
+  ],
+  "detailed_solution_md": "To solve this problem, we can consider the sequence of balloon pops. We want the last golden balloon to be popped when exactly $2$ silver balloons remain. This means the last three balloons popped must be in the order: golden, silver, silver.\n\n1. **Total Balloons**: There are $5$ golden and $8$ silver balloons, totaling $13$ balloons.\n\n2. **Probability of Specific Sequence**: We need the last three balloons to be golden, silver, silver in that exact order.\n   - The probability the third-to-last balloon is golden: $\\frac{5}{13}$.\n   - Given that, the probability the next is silver: $\\frac{8}{12}$.\n   - Then, the probability the last is silver: $\\frac{7}{11}$.\n\n3. **Combined Probability**: Multiply these probabilities together:\n   $$\\frac{5}{13} \\times \\frac{8}{12} \\times \\frac{7}{11} = \\frac{280}{1716} = \\frac{70}{429}$$\n\n4. **Final Answer**: The probability is $\\boxed{\\dfrac{70}{429}}$.",
+  "topic": "probability",
+  "difficulty": "medium"
+}

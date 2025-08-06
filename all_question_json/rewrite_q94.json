@@ -1,0 +1,12 @@
+{
+  "title": "Painting the Studio Blue",
+  "stem_md": "In a vibrant art studio, there's a drying rack with **2 red canvases** and **1 blue canvas**. Each day, you randomly pick a canvas from the rack to work on. Regardless of its color, you replace it with a fresh **blue canvas**. What's the expected number of days until the rack contains only blue canvases?",
+  "hints": [
+    "Hint 1 – Break the problem into stages: first, how many days to go from 1 to 2 blue canvases, then from 2 to 3?",
+    "Hint 2 – Each stage is like waiting for a 'success' (replacing a red canvas). What's the probability of success at each stage?",
+    "Hint 3 – The first stage follows $X_1 \\sim \\text{Geom}(\\frac{2}{3})$, and the second $X_2 \\sim \\text{Geom}(\\frac{1}{3})$. Use linearity of expectation."
+  ],
+  "detailed_solution_md": "Let’s define:\n- $X_1$: Days needed to go from **1 blue canvas** to **2 blue canvases**.\n- $X_2$: Days needed to go from **2 blue canvases** to **3 blue canvases**.\n\n**Stage 1 ($X_1$):**\n- Probability of picking a red canvas (success): $\\frac{2}{3}$.\n- $X_1 \\sim \\text{Geom}(\\frac{2}{3})$, so $E[X_1] = \\frac{1}{\\frac{2}{3}} = \\frac{3}{2}$ days.\n\n**Stage 2 ($X_2$):**\n- Now the rack has 2 blue and 1 red canvas.\n- Probability of picking the remaining red canvas (success): $\\frac{1}{3}$.\n- $X_2 \\sim \\text{Geom}(\\frac{1}{3})$, so $E[X_2] = \\frac{1}{\\frac{1}{3}} = 3$ days.\n\n**Total Expected Days ($T$):**\nBy linearity of expectation:\n$$\nE[T] = E[X_1] + E[X_2] = \\frac{3}{2} + 3 = \\boxed{\\frac{9}{2}}\n$$\n\n**Final Answer:** $\\boxed{\\dfrac{9}{2}}$ days.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

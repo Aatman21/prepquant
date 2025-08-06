@@ -1,0 +1,12 @@
+{
+  "title": "Picnic Basket Arrangements",
+  "stem_md": "At the annual Park Festival, you're organizing picnic baskets for visitors. Each basket contains **7 distinct gourmet sandwiches** (e.g., avocado, brie, etc.), and there are **4 distinct colored picnic blankets** (red, blue, green, yellow) where visitors can sit. \n\nYou want to calculate the total number of ways to distribute all sandwiches across the blankets, where:\n- Each blanket gets **zero or more sandwiches** ($s_i \\geq 0$),\n- All **7 sandwiches must be distributed** ($s_1 + s_2 + s_3 + s_4 = 7$).\n\nFor any *specific* distribution (e.g., 2 on red, 1 on blue, 3 on green, 1 on yellow), the number of arrangements is given by the multinomial coefficient $\\binom{7}{s_1, s_2, s_3, s_4}$. **What is the sum of all such multinomial coefficients across every possible distribution?**",
+  "hints": [
+    "Hint 1 – Think of each sandwich as having 4 choices (one per blanket). How does this relate to counting all possible assignments?",
+    "Hint 2 – The multinomial coefficient for a specific distribution counts the ways to assign sandwiches to blankets *with fixed counts*. Summing over all distributions gives the total unrestricted assignments.",
+    "Hint 3 – The total number of ways to assign 7 distinct sandwiches to 4 distinct blankets, *without* any restrictions on counts, is equivalent to the sum of all multinomial coefficients."
+  ],
+  "detailed_solution_md": "### Step-by-Step Solution:\n\n1. **Interpret the Multinomial Coefficient**: For a *specific* distribution $(s_1, s_2, s_3, s_4)$, the coefficient $\\binom{7}{s_1, s_2, s_3, s_4}$ counts the number of ways to assign sandwiches to blankets with exactly $s_i$ sandwiches on blanket $i$.\n\n2. **Sum Over All Distributions**: The problem asks for the sum of these coefficients across all valid distributions where $s_1 + s_2 + s_3 + s_4 = 7$. This is equivalent to counting **all possible unrestricted assignments** of sandwiches to blankets, since the sum includes every possible count configuration.\n\n3. **Count Unrestricted Assignments**: Each of the 7 distinct sandwiches has 4 independent choices (one per blanket). Thus, the total number of assignments is:\n   $$\n   4 \\times 4 \\times \\cdots \\times 4 = 4^7\n   $$\n\n4. **Final Answer**: The sum of all multinomial coefficients is therefore $4^7$.\n\n\\boxed{4^7 = 16384}",
+  "topic": "probability",
+  "difficulty": "medium"
+}

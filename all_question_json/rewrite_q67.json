@@ -1,0 +1,12 @@
+{
+  "title": "Lantern Fuel Levels",
+  "stem_md": "A lighthouse keeper must refill three signal lanterns—each requiring a distinct fuel level measured in whole barrels (1 to 6). The keeper fills them one by one from a fresh supply. What's the probability that the three final fuel levels form a strictly increasing sequence like $b_1 < b_2 < b_3$?",
+  "hints": [
+    "First calculate the chance all three fuel levels are distinct—like drawing without replacement.",
+    "For any three distinct levels, only one permutation is strictly increasing.",
+    "Combine the probabilities: (distinct levels) × (increasing order | distinct levels)."
+  ],
+  "detailed_solution_md": "**Step 1: Distinct fuel levels**\n\nThe probability that all three lanterns have distinct fuel levels is equivalent to drawing without replacement from 6 possible levels:\n\n$$ P(\\text{distinct}) = \\frac{6}{6} \\times \\frac{5}{6} \\times \\frac{4}{6} = \\frac{120}{216} = \\frac{5}{9} $$\n\n**Step 2: Increasing order condition**\n\nGiven three distinct levels $(b_1, b_2, b_3)$, there are $3! = 6$ possible orderings. Only **one** of these is strictly increasing:\n\n$$ P(\\text{increasing} \\,|\\, \\text{distinct}) = \\frac{1}{6} $$\n\n**Step 3: Combined probability**\n\nMultiply the two probabilities:\n\n$$ P(\\text{strictly increasing}) = P(\\text{distinct}) \\times P(\\text{increasing} \\,|\\, \\text{distinct}) $$\n$$ = \\frac{5}{9} \\times \\frac{1}{6} = \\frac{5}{54} $$\n\n**Final answer:** $\\boxed{\\dfrac{5}{54}}$",
+  "topic": "probability",
+  "difficulty": "medium"
+}

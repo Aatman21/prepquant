@@ -1,0 +1,12 @@
+{
+  "title": "First Prize at the Fair",
+  "stem_md": "At the bustling village fair, there are **5 golden tickets** hidden among **48 ordinary tickets** in a giant spinning drum. The tickets are well-mixed. On average, how many tickets do you need to draw from the drum to find your **first golden ticket**? \n\n*Assume each draw is random and tickets are not replaced.*",
+  "hints": [
+    "Hint 1 – Think about how the ordinary tickets are divided by the golden tickets.",
+    "Hint 2 – By symmetry, the gaps between golden tickets should be equal on average.",
+    "Hint 3 – Calculate the expected size of the first gap, then add 1 for the first golden ticket itself."
+  ],
+  "detailed_solution_md": "Let’s break this down step-by-step:\n\n1. **Total tickets**: There are $48$ ordinary tickets and $5$ golden tickets, making $53$ tickets in total. However, we only care about the positions up to the **first** golden ticket.\n\n2. **Gaps between golden tickets**: The $5$ golden tickets divide the $48$ ordinary tickets into $5$ segments (some possibly empty). Let $G_1, G_2, \\dots, G_5$ represent the number of ordinary tickets **before** each golden ticket. For example:\n   - $G_1$ = ordinary tickets before the **first** golden ticket.\n   - $G_2$ = ordinary tickets between the first and second golden ticket, etc.\n\n3. **Symmetry**: By symmetry, all $G_i$ have the same expected value: $E[G_1] = E[G_2] = \\dots = E[G_5]$.\n\n4. **Total ordinary tickets**: The sum of all gaps must equal the total ordinary tickets:\n   $$G_1 + G_2 + \\dots + G_5 = 48.$$\n\n5. **Linearity of expectation**: Taking expectations on both sides:\n   $$E[G_1] + E[G_2] + \\dots + E[G_5] = 48.$$\n   Since all $E[G_i]$ are equal, this simplifies to:\n   $$5 \\cdot E[G_1] = 48 \\implies E[G_1] = \\frac{48}{5} = 9.6.$$\n\n6. **First golden ticket**: The first golden ticket appears **after** $G_1$ ordinary tickets, so the expected number of draws is:\n   $$E[\\text{draws}] = E[G_1] + 1 = 9.6 + 1 = 10.6.$$\n\n**Final answer**: On average, you need to draw $\\boxed{10.6}$ tickets to find the first golden ticket.",
+  "topic": "probability",
+  "difficulty": "medium"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Sandcastle Synchronization",
+  "stem_md": "Two teammates, *Sandy* and *Tina*, are building sandcastles at different times. Sandy starts at time $s$ (low tide) and Tina at time $t$ (high tide), where $0 \\leq s \\leq t$. Their castle heights (in cm) follow the *Tidal Random Walk*:\n\n- At any time $\\tau$, height $H_\\tau \\sim N(0, \\tau)$ (mean 0, variance $\\tau$).\n- Increments like $H_t - H_s$ are independent of $H_s$.\n\nCompute the **height synchronization metric** $\\text{Cov}(H_s, H_t)$ between their castles when $s=1$, $t=2$.",
+  "hints": [
+    "The synchronization metric breaks into two parts: $E[H_s H_t] - E[H_s]E[H_t]$. What simplifies given $H_\\tau$'s mean?",
+    "Express $H_t$ as $(H_t - H_s) + H_s$. Why does independence make $E[H_s (H_t - H_s)] = 0$?",
+    "The remaining term $E[H_s^2]$ equals the variance of $H_s$ because $E[H_s] = 0$."
+  ],
+  "detailed_solution_md": "**Step 1: Expand Covariance**\n\\[\n\\text{Cov}(H_s, H_t) = E[H_s H_t] - \\underbrace{E[H_s]E[H_t]}_{0 \\text{ (since } E[H_\\tau]=0)}\n\\]\nThus, $\\text{Cov}(H_s, H_t) = E[H_s H_t]$.\n\n**Step 2: Decompose $H_t$**\nUsing independence of increments:\n\\[\nH_t = (H_t - H_s) + H_s\n\\]\nMultiply by $H_s$ and take expectations:\n\\[\nE[H_s H_t] = E[H_s (H_t - H_s)] + E[H_s^2]\n\\]\n\n**Step 3: Simplify Terms**\n- By independence: $E[H_s (H_t - H_s)] = E[H_s]E[H_t - H_s] = 0 \\times 0 = 0$.\n- Since $H_s \\sim N(0, s)$, $E[H_s^2] = \\text{Var}(H_s) = s$.\n\n**Final Answer**\n\\[\n\\text{Cov}(H_s, H_t) = s = \\boxed{1} \\quad \\text{(for } s=1, t=2)\n\\]",
+  "topic": "pure math",
+  "difficulty": "easy"
+}

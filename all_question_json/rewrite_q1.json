@@ -1,0 +1,12 @@
+{
+  "title": "Picnic Basket Strategy",
+  "stem_md": "You're organizing a **city park festival** with two picnic baskets. Each day, you can either:\n\n1. **Add a treat**: Place one fresh pastry (from the bakery) into a randomly chosen basket, **or**\n2. **Distribute treats**: Empty one randomly chosen basket and give its contents to visitors.\n\nThe festival lasts for 100 days, and you must choose one action per day. At the end, you tally all pastries given to visitors. \n\nAssuming optimal play, what's the **expected number of pastries distributed**? *(You don’t know which basket is emptied during the festival.)*",
+  "hints": [
+    "Think about the order of actions—should you add pastries after distributing any?",
+    "Calculate the expected value if you add pastries for *p* days and distribute for the remaining days. Compare adding one more pastry day.",
+    "Find the largest *p* where adding the *p*-th pastry increases the total expectation. Use the harmonic series approximation for the sum."
+  ],
+  "detailed_solution_md": "### Step 1: Optimal Action Order\nAll **add treat** actions should precede **distribute treats**. If you add a pastry after distributing, its expected contribution decreases because it might be in a basket that’s later emptied.\n\n### Step 2: Expected Value Calculation\nLet *p* be the number of **add treat** days (so *100−p* distribute days). The total pastries added is *p*, split randomly between baskets. At each distribute day, you empty one basket (expected half the remaining pastries). The expected distributed amount is:\n$$E(p) = p \\sum_{i=1}^{100-p} \\frac{1}{2^i}$$\n\n### Step 3: Find Optimal *p*\nWe seek the largest *p* where adding the *p*-th pastry increases *E(p)*. Compare *E(p)* and *E(p+1)*:\n$$p \\sum_{i=1}^{100-p} \\frac{1}{2^i} > (p+1) \\sum_{i=1}^{99-p} \\frac{1}{2^i}$$\nSimplify using the geometric series:\n$$p \\cdot \\left(1 - \\frac{1}{2^{100-p}}\\right) > (p+1) \\cdot \\left(1 - \\frac{1}{2^{99-p}}\\right)$$\nFor large *p*, $\\sum_{i=1}^{k} \\frac{1}{2^i} \\approx 1$, so:\n$$p > 2^{100-p}$$\nSolve numerically: *p* ≈ 94 (since $2^6 = 64 < 94 < 128 = 2^7$).\n\n### Step 4: Verify Maximum\nCompute *E(94)*:\n$$E(94) = 94 \\sum_{i=1}^6 \\frac{1}{2^i} = 94 \\left(1 - \\frac{1}{64}\\right) = 94 \\times \\frac{63}{64} \\approx 92.53$$\nCheck neighbors:\n- *E(93)* ≈ 92.30\n- *E(95)* ≈ 92.03\nThus, **94 add days** yield the maximum. \n\n**Final answer**: $\\boxed{92.53}$ pastries expected.",
+  "topic": "probability",
+  "difficulty": "hard"
+}

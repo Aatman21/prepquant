@@ -1,0 +1,12 @@
+{
+  "title": "Toy Tuning Toss-Up",
+  "stem_md": "In a bustling toy workshop, two elves **Tinker** and **Twist** are tuning clockwork toys. Each toy has a **golden gear** (success) or **silver gear** (failure) inside, with equal probability. They take turns testing toys until one wins:\n\n- **Tinker wins** if 3 golden gears appear (order doesn't matter).\n- **Twist wins** if 3 silver gears appear.\n\nWhat's the **expected number of toys tested** until a winner is declared?",
+  "hints": [
+    "Symmetry hint: The probability either elf wins is equal. Focus on Tinker's expected toys, then double it.",
+    "Break it down: Calculate the probability Tinker wins in exactly 3, 4, or 5 tests. Remember the last test must be golden!",
+    "Expected toys for Tinker: $E = 3 \\cdot \\frac{1}{8} + 4 \\cdot \\frac{3}{16} + 5 \\cdot \\frac{6}{32}$. Final answer is $2E$."
+  ],
+  "detailed_solution_md": "### Step 1: Symmetry Setup\nBy symmetry:\n- $P(\\text{Tinker wins}) = P(\\text{Twist wins}) = \\frac{1}{2}$\n- Expected toys until Tinker wins ($E_T$) = Expected toys until Twist wins ($E_W$).\n\nTotal expected toys $E = E_T + E_W = 2E_T$ (since outcomes are independent).\n\n### Step 2: Calculate $E_T$\nTinker wins if the **3rd golden gear** appears on the $n$-th test, with $n \\geq 3$.\n\n- **Case 1: Wins in 3 tests**\n  - All 3 are golden: $\\text{GGG}$\n  - Probability: $\\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8}$\n  - Contribution to expectation: $3 \\cdot \\frac{1}{8} = \\frac{3}{8}$\n\n- **Case 2: Wins in 4 tests**\n  - Sequence has **exactly 2 golden gears in first 3 tests**, then a golden on the 4th: $\\text{GGNG}$ or permutations.\n  - Number of valid arrangements: $\\binom{3}{2} = 3$ (e.g., GGN, GNG, NGG)\n  - Probability: $3 \\cdot \\left(\\frac{1}{2}\\right)^4 = \\frac{3}{16}$\n  - Contribution: $4 \\cdot \\frac{3}{16} = \\frac{12}{16}$\n\n- **Case 3: Wins in 5 tests**\n  - **Exactly 2 golden gears in first 4 tests**, then golden on 5th.\n  - Valid arrangements: $\\binom{4}{2} = 6$ (e.g., GGNNN, GNGNN, etc.)\n  - Probability: $6 \\cdot \\left(\\frac{1}{2}\\right)^5 = \\frac{6}{32}$\n  - Contribution: $5 \\cdot \\frac{6}{32} = \\frac{30}{32}$\n\n- **Sum contributions**:\n  $$E_T = \\frac{3}{8} + \\frac{12}{16} + \\frac{30}{32} = \\frac{12}{32} + \\frac{24}{32} + \\frac{30}{32} = \\frac{66}{32} = \\frac{33}{16}$$\n\n### Step 3: Final Answer\nTotal expected toys:\n$$E = 2E_T = 2 \\cdot \\frac{33}{16} = \\boxed{\\frac{33}{8}}$$",
+  "topic": "probability",
+  "difficulty": "easy"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Festival Picnic Blankets",
+  "stem_md": "At the city park festival, there are **10 unique picnic blanket designs**, each with a matching set of two blankets. A volunteer randomly picks two blankets from the storage tent. What's the probability they select a matching pair?",
+  "hints": [
+    "Hint 1 – How many total blankets are there initially?",
+    "Hint 2 – After picking one blanket, how many blankets remain that could form a match?",
+    "Hint 3 – The first pick doesn't affect the probability (why?), but the second must match its design."
+  ],
+  "detailed_solution_md": "**Step 1: Total Blankets**  \nThere are $10$ unique designs, each with $2$ blankets, so the total number of blankets is:\n$$10 \\times 2 = 20.$$\n\n**Step 2: First Pick**  \nThe first blanket can be any of the $20$. Since all designs are equally likely, the probability is effectively $1$ (it’s a given).\n\n**Step 3: Second Pick**  \nTo form a match, the second blanket must be the *pair* of the first one. There’s only $1$ matching blanket left out of the remaining $19$ blankets. Thus, the probability is:\n$$\\frac{1}{19}.$$\n\n**Final Answer:**  \nThe probability of drawing a matching pair is $\\boxed{\\dfrac{1}{19}}$.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

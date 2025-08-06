@@ -1,0 +1,12 @@
+{
+  "title": "Adoption Day Color Clash",
+  "stem_md": "At the Happy Paws Rescue Center, there are 12 pet enclosures arranged in a circle. Each enclosure is randomly assigned either a **red** or **blue** adoption tag. A *matching quartet* is defined as four enclosures that form a rectangle (when connected) AND have identical tag colors. \n\nCompute the probability that **no matching quartet** exists among the 12 enclosures. Use combinatorial reasoning and show all steps.",
+  "hints": [
+    "Consider how opposing enclosures (directly across the circle) influence rectangle formation.",
+    "Break into cases based on how many opposing enclosure pairs share the same tag color.",
+    "Case 1: Zero matching opposing pairs. Case 2: Exactly one matching pair. Case 3: Two matching pairs (one red, one blue). Count valid configurations for each."
+  ],
+  "detailed_solution_md": "**Step 1: Total configurations**  \nThere are $2^{12} = 4096$ possible tag arrangements since each of the 12 enclosures has 2 color choices.  \n\n**Step 2: Case 1 – Zero matching opposing pairs**  \n- Assign tags to the first 6 enclosures: $2^6 = 64$ ways.  \n- The remaining 6 enclosures must **differ** from their direct opposites.  \n- Total for Case 1: $64$ valid arrangements.  \n\n**Step 3: Case 2 – Exactly one matching opposing pair**  \n- Assign tags to the first 6 enclosures: $64$ ways.  \n- Choose **1** of the remaining 6 enclosures to match its opposite: $\\binom{6}{1} = 6$ choices.  \n- Total for Case 2: $6 \\times 64 = 384$ arrangements.  \n\n**Step 4: Case 3 – One red-red and one blue-blue opposing pair**  \n- Assign tags to the first 6 enclosures: $64$ ways.  \n- Choose **2** of the remaining 6 enclosures to match their opposites. Half will have one red and one blue pair.  \n- Valid count: $\\frac{1}{2} \\times \\binom{6}{2} \\times 64 = 480$ arrangements.  \n\n**Step 5: Sum valid cases**  \nTotal valid arrangements without a matching quartet:  \n$$64 + 384 + 480 = 928$$  \n\n**Final probability**:  \n$$\\boxed{\\dfrac{928}{4096} = \\dfrac{29}{128}}$$",
+  "topic": "probability",
+  "difficulty": "medium"
+}

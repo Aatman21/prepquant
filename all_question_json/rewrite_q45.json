@@ -1,0 +1,12 @@
+{
+  "title": "Sandcastle Sentinels",
+  "stem_md": "Three beachgoers are stationed at their own side of a triangular sandcastle. Each decides independently to patrol either clockwise or counter-clockwise around the castle with equal likelihood. What is the probability that no two sentinels end up at the same corner simultaneously?",
+  "hints": [
+    "Hint 1 – Consider that for no two sentinels to meet, all must choose the same patrol direction.",
+    "Hint 2 – Calculate the probability that all choose clockwise, then the same for counter-clockwise.",
+    "Hint 3 – Add the two probabilities since these are mutually exclusive events."
+  ],
+  "detailed_solution_md": "To ensure no two sentinels meet at a corner, all three must patrol in the same direction. \n\n1. **Probability all choose clockwise**: Each sentinel has a $\\frac{1}{2}$ chance to go clockwise. Since choices are independent:\n$$ P(\\text{all clockwise}) = \\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8} $$\n\n2. **Probability all choose counter-clockwise**: Similarly:\n$$ P(\\text{all counter-clockwise}) = \\left(\\frac{1}{2}\\right)^3 = \\frac{1}{8} $$\n\n3. **Total probability**: These events are mutually exclusive, so we add them:\n$$ P(\\text{no meetings}) = \\frac{1}{8} + \\frac{1}{8} = \\boxed{\\frac{1}{4}} $$\n\n**Final answer**: $\\boxed{\\frac{1}{4}}$",
+  "topic": "probability",
+  "difficulty": "easy"
+}

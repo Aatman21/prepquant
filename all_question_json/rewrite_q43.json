@@ -1,0 +1,12 @@
+{
+  "title": "Counting Friendship Bracelet Patterns",
+  "stem_md": "At summer camp, each camper can create friendship bracelets using **exactly 99 colorful beads**. If a group of **99 campers** each make one bracelet following this rule, how many **total bead placements** (digits) are recorded in the camp's craft log?\n\n*Hint:* Think about the maximum possible bead combinations when all campers collaborate on a single mega-bracelet.",
+  "hints": [
+    "Hint 1 – Consider how bead placements scale when campers combine their bead allowances.",
+    "Hint 2 – What's the relationship between $99^{99}$ and powers of 10 for digit counting?",
+    "Hint 3 – Use logarithms to find the order of magnitude: $\\log_{10}(99^{99}) = 99 \\times \\log_{10}(99)$."
+  ],
+  "detailed_solution_md": "**Step 1: Understand the Mega-Bracelet**\nIf all 99 campers pool their beads, the largest possible bracelet would use $99 \\times 99 = 99^{99}$ beads. We need to count the digits (bead placements) in this number.\n\n**Step 2: Logarithmic Approach**\nThe number of digits $D$ in a positive integer $N$ is given by:\n$$D = \\lfloor \\log_{10} N \\rfloor + 1$$\nFor $N = 99^{99}$:\n$$\\log_{10}(99^{99}) = 99 \\times \\log_{10}(99)$$\n\n**Step 3: Calculate $\\log_{10}(99)$**\nSince $99$ is close to $100$ ($10^2$), we use the approximation:\n$$99 = 100 \\times 0.99 \\implies \\log_{10}(99) = \\log_{10}(100) + \\log_{10}(0.99) = 2 + \\log_{10}(1 - 0.01)$$\nUsing the Taylor expansion for small $x$:\n$$\\log_{10}(1 - x) \\approx -x \\ln(10) \\quad \\text{(where } \\ln(10) \\approx 2.3026\\text{)}$$\nThus:\n$$\\log_{10}(99) \\approx 2 - \\frac{0.01}{\\ln(10)} \\approx 2 - 0.00434 \\approx 1.99566$$\n\n**Step 4: Compute $99 \\times \\log_{10}(99)$**\n$$99 \\times 1.99566 \\approx 197.570$$\n\n**Step 5: Determine Digits**\n$$D = \\lfloor 197.570 \\rfloor + 1 = 197 + 1 = \\boxed{198}$$\n\n**Final Answer:** The craft log records $\\mathbf{198}$ bead placements.",
+  "topic": "brainteasers",
+  "difficulty": "medium"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Toy Workshop Bond Valuation",
+  "stem_md": "In a bustling toy workshop, the head toymaker needs to evaluate the **present value** of a **clockwork coupon contract** with these terms:\n\n- **Maturity**: 5 years (until the contract expires)\n- **Face value**: 3000 shiny gold coins (paid at maturity)\n- **Annual coupon**: 4% of face value (paid yearly as 120 coins)\n- **Workshop inflation rate**: 7% per year (coins lose value over time)\n\n**Question**: What is the **total present value** of this contract, accounting for inflation?",
+  "hints": [
+    "Hint 1 – light nudge: Break the problem into two parts: the coupon payments and the face value payment.",
+    "Hint 2 – deeper clue: Discount each coupon payment and the face value by the inflation rate raised to the power of the year it's received.",
+    "Hint 3 – near-full path: Sum the present values of all coupon payments ($\\sum_{n=1}^{5} \\frac{120}{1.07^n}$) and add the discounted face value ($\\frac{3000}{1.07^5}$)."
+  ],
+  "detailed_solution_md": "**Step 1: Calculate Present Value of Coupon Payments**\n\nEach year, the workshop receives a coupon payment of 120 coins. We discount each payment by the inflation rate (7%) for the respective year:\n\n$$\n\\text{PV}_{\\text{coupons}} = \\sum_{n=1}^{5} \\frac{120}{1.07^n}\n$$\n\nCalculating each term:\n\n- Year 1: $\\frac{120}{1.07^1} = 112.15$\n- Year 2: $\\frac{120}{1.07^2} = 104.81$\n- Year 3: $\\frac{120}{1.07^3} = 97.94$\n- Year 4: $\\frac{120}{1.07^4} = 91.53$\n- Year 5: $\\frac{120}{1.07^5} = 85.54$\n\nTotal PV of coupons:\n\n$$\n112.15 + 104.81 + 97.94 + 91.53 + 85.54 = 492.02 \\text{ coins}\n$$\n\n**Step 2: Calculate Present Value of Face Value**\n\nThe face value of 3000 coins is paid at maturity (Year 5). Discount it by the inflation rate:\n\n$$\n\\text{PV}_{\\text{face}} = \\frac{3000}{1.07^5} = 2138.98 \\text{ coins}\n$$\n\n**Step 3: Sum Both Components**\n\n$$\n\\text{Total PV} = \\text{PV}_{\\text{coupons}} + \\text{PV}_{\\text{face}} = 492.02 + 2138.98 = 2631.00 \\text{ coins}\n$$\n\n**Final Answer**: The total present value of the contract is **\\boxed{2631}** coins.",
+  "topic": "finance",
+  "difficulty": "easy"
+}

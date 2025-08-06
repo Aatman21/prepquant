@@ -1,0 +1,12 @@
+{
+  "title": "Festival Strategy Game",
+  "stem_md": "At the annual Park Festival, organizers Alice and Bob take turns assigning picnic spots from a set $S = \\{2, 3, \\dots, 30\\}$ (representing spot IDs). The first to assign a spot that shares a common factor (e.g., both divisible by 2) with any previously assigned spot loses. Alice can choose to go first or second. Both play optimally. Let $p=1$ if Alice should choose first, $p=2$ if second. There are 6 optimal first-spot choices $v_1, \\dots, v_6$ for Alice. Compute $100p + \\frac{v_1 + v_2 + v_3 + v_4 + v_5 + v_6}{6}$.",
+  "hints": [
+    "Identify the 'safe' spots (those with no shared factors unless forced).",
+    "Selecting certain composite spots (like 6) can eliminate multiple primes at once.",
+    "Optimal play involves forcing Bob into a losing position by controlling the remaining primes."
+  ],
+  "detailed_solution_md": "**Step 1: Identify Prime Spots**  \nPrime spot IDs in $S$: $\\{2, 3, 5, 7, 11, 13, 17, 19, 23, 29\\}$ (10 total). These are initially 'safe' since no prior spots exist.  \n\n**Step 2: Force a Winning Position**  \nAlice should go first ($p=1$) and pick a composite spot that eliminates multiple primes. For example:  \n- Picking **6** (factors: 2, 3) removes 2 and 3 from future considerations.  \n- Now, 8 primes remain. Bob must pick one, say $q$, leaving 7. Alice picks another, leaving 6, etc. Bob eventually picks a non-prime (e.g., 4), which shares a factor with 2 (already removed by 6), so Bob loses.  \n\n**Alternative Winning Moves**:  \n- **12, 18, 24**: Same logic (all multiples of 2 and 3).  \n- **5 or 25**: Picking 5 forces Bob to eliminate one prime at a time; Alice mirrors to win.  \n\n**Step 3: Compute the Answer**  \nOptimal first picks: $\\{6, 12, 18, 24, 5, 25\\}$.  \n$$100p + \\frac{6 + 12 + 18 + 24 + 5 + 25}{6} = 100(1) + \\frac{90}{6} = 115$$  \n\n**Final Answer**: $\\boxed{115}$",
+  "topic": "brainteasers",
+  "difficulty": "hard"
+}

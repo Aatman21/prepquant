@@ -1,0 +1,12 @@
+{
+  "title": "Gnomes' Blossom Harvest",
+  "stem_md": "In the **Enchanted Garden**, four cheerful gnomes each tend a magical plant that blooms with petals numbered from 1 to 6. When the gnomes gather their petals at dusk, they aim for a total of **20 petals** to restore the garden’s balance.  \n\nAssuming each plant’s petal count is equally likely, what is the probability that the gnomes’ combined petals sum exactly to 20?",
+  "hints": [
+    "First, count all possible ways the four plants can bloom (each has 6 options).",
+    "Identify all unique combinations of four numbers (1-6) that sum to 20, then account for their arrangements.",
+    "The valid combinations are: (6,6,6,2), (6,6,5,3), (6,6,4,4), (6,5,5,4), and (5,5,5,5). Calculate permutations for each."
+  ],
+  "detailed_solution_md": "**Step 1: Total Outcomes**  \nEach plant can bloom with $p = 1$ to $6$ petals. For four plants, the total number of possible outcomes is:  \n$$6 \\times 6 \\times 6 \\times 6 = 6^4 = 1296.$$  \n\n**Step 2: Find Valid Combinations**  \nWe seek quadruples $(p_1, p_2, p_3, p_4)$ where $p_1 + p_2 + p_3 + p_4 = 20$ and $1 \\leq p_i \\leq 6$. By inspection, the valid combinations are:  \n1. $(6,6,6,2)$  \n2. $(6,6,5,3)$  \n3. $(6,6,4,4)$  \n4. $(6,5,5,4)$  \n5. $(5,5,5,5)$  \n\n**Step 3: Count Permutations**  \n- For $(6,6,6,2)$: The number of distinct arrangements is $\\frac{4!}{3!1!} = 4$.  \n- For $(6,6,5,3)$: The number of distinct arrangements is $\\frac{4!}{2!1!1!} = 12$.  \n- For $(6,6,4,4)$: The number of distinct arrangements is $\\frac{4!}{2!2!} = 6$.  \n- For $(6,5,5,4)$: The number of distinct arrangements is $\\frac{4!}{1!2!1!} = 12$.  \n- For $(5,5,5,5)$: Only $1$ arrangement exists.  \n\n**Step 4: Sum Favorable Outcomes**  \nTotal favorable outcomes: $4 + 12 + 6 + 12 + 1 = 35$.  \n\n**Final Probability**  \n$$\\text{Probability} = \\frac{35}{1296}.$$  \n\n**Answer**: $\\boxed{\\dfrac{35}{1296}}$.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

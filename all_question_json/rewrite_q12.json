@@ -1,0 +1,12 @@
+{
+  "title": "First Rotten Apple",
+  "stem_md": "In a sunny orchard, pickers inspect crates of apples one by one. Each crate $C_1, C_2, \\dots$ has a freshness score $C_i \\sim \\text{Unif}(0,1)$ IID. The orchard manager stops inspecting at the first crate $N$ where $C_N \\neq \\max\\{C_1, \\dots, C_N\\}$. Find $\\mathbb{E}[N]$ (answer in form $a + be$ for integers $a, b$).",
+  "hints": [
+    "For $N > n$, all crates up to $n$ must be in strictly increasing freshness order.",
+    "The probability of any specific ordering of $n$ uniform variables is $1/n!$.",
+    "Use the tail-sum formula $\\mathbb{E}[N] = \\sum_{n=0}^\\infty P(N > n)$ and recognize the Taylor series for $e$."
+  ],
+  "detailed_solution_md": "**Step 1: Tail-sum formula**  \nFor non-negative integer $N$, we have:\n$$\\mathbb{E}[N] = \\sum_{n=0}^\\infty P(N > n)$$\n\n**Step 2: Compute $P(N > n)$**  \n- $P(N > 0) = 1$ (no crates inspected yet)  \n- $P(N > 1) = 1$ (only one crate can't violate max condition)  \n- For $n \\geq 2$, $\\{N > n\\}$ requires $C_1 < C_2 < \\dots < C_n$. Since the $C_i$ are IID uniform, any ordering is equally likely:\n$$P(N > n) = \\frac{1}{n!}$$\n\n**Step 3: Sum the series**  \n\\begin{align*}\n\\mathbb{E}[N] &= \\sum_{n=0}^\\infty \\frac{1}{n!} \\\\\n&= 1 + 1 + \\frac{1}{2!} + \\frac{1}{3!} + \\cdots \\\\\n&= e \\quad \\text{(Taylor series for $e^1$)}\n\\end{align*}\n\n**Final Answer**:  \nThe expectation is $\\boxed{e}$, so $a + be = 0 + 1\\cdot e$ gives $a + b = \\mathbf{1}$.",
+  "topic": "probability",
+  "difficulty": "medium"
+}

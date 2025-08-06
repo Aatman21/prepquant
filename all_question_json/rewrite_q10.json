@@ -1,0 +1,12 @@
+{
+  "title": "The Magical Icing Trio",
+  "stem_md": "In a bustling bakery, three batches of icing are prepared in the forms **ABC**, **BCA**, and **CAB**, where each letter represents a distinct digit (0-9). The head baker insists that all three batches must be perfectly divisible by the magic number **37** when measured in grams. \n\nGiven that the total weight of any batch is a 3-digit number (i.e., $100 \\leq \\text{ABC} \\leq 999$), how many distinct **ABC** combinations satisfy this magical divisibility condition?",
+  "hints": [
+    "Hint 1 – Consider how rotating digits affects the numerical value. What happens when you subtract **BCA** from **ABC**?",
+    "Hint 2 – Show that if **ABC** is divisible by 37, then **ABC - BCA** is also divisible by 37. Use modular arithmetic to simplify.",
+    "Hint 3 – Prove that **BCA** and **CAB** must inherit divisibility by 37 from **ABC**. Thus, the problem reduces to counting 3-digit multiples of 37."
+  ],
+  "detailed_solution_md": "**Step 1: Define the batches numerically**  \nLet $\\text{ABC} = 100A + 10B + C$, where $A$, $B$, $C$ are digits and $A \\geq 1$ (since **ABC** is a 3-digit number).  \n\n**Step 2: Express rotated forms**  \n- $\\text{BCA} = 100B + 10C + A$  \n- $\\text{CAB} = 100C + 10A + B$  \n\n**Step 3: Analyze divisibility linkage**  \nAssume $\\text{ABC}$ is divisible by 37. Compute the difference:  \n$$\\text{ABC} - \\text{BCA} = (100A + 10B + C) - (100B + 10C + A) = 99A - 90B - 9C = 9(11A - 10B - C)$$  \nSince $\\text{ABC}$ is divisible by 37, and $999 = 37 \\times 27$ is also divisible by 37, observe:  \n$$11A - 10B - C \\equiv 100A + 10B + C \\pmod{37}$$  \n(because $100A \\equiv -11A \\pmod{37}$ due to $111 \\equiv 0 \\pmod{37}$). Thus:  \n$$\\text{ABC} - \\text{BCA} \\equiv -9 \\times \\text{ABC} \\equiv 0 \\pmod{37}$$  \nThis implies $\\text{BCA}$ is divisible by 37 if $\\text{ABC}$ is. A similar argument holds for $\\text{CAB}$.  \n\n**Step 4: Count valid 3-digit multiples of 37**  \nThe problem reduces to counting 3-digit numbers divisible by 37. The smallest is $37 \\times 3 = 111$, and the largest is $37 \\times 27 = 999$.  \nTotal values: $27 - 3 + 1 = 25$. However, we must include $37 \\times 2 = 74$ (a 2-digit number) if $A=0$ were allowed, but since **ABC** is strictly 3-digit, the count is **27 - 2 = 25**. Wait, no:  \n- $37 \\times 3 = 111$ to $37 \\times 27 = 999$ gives $27 - 3 + 1 = 25$ valid numbers.  \n\n**Final Answer**:  \nThere are $\\boxed{25}$ possible **ABC** combinations.",
+  "topic": "brainteasers",
+  "difficulty": "hard"
+}

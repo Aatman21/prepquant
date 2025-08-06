@@ -1,0 +1,12 @@
+{
+  "title": "Carnival Parade Prize Game",
+  "stem_md": "You're organizing a carnival parade with two spinning wheels: one **rainbow-colored** and one **starry-night-colored**, each with 10 sections labeled 1 through 10. You spin both wheels simultaneously. If they land on the same section, the game ends. If they show different sections, but the starry-night wheel lands on a section at least 3 higher than the rainbow wheel, you win a **golden ticket** and can spin again. Otherwise, you win nothing and spin again. The game only ends when both wheels match. What's the expected number of golden tickets you'll win?",
+  "hints": [
+    "First, calculate the probability that the starry-night wheel lands exactly 3 or more sections ahead of the rainbow wheel.",
+    "Next, find the probability that both wheels match (game ends) or neither condition is met (continue spinning).",
+    "Set up an expectation equation where the expected value $e$ depends on the outcomes of the first spin, considering the game might restart with an additional golden ticket."
+  ],
+  "detailed_solution_md": "Let $e$ be the expected number of golden tickets.\n\n1. **Probability starry-night wheel is ≥3 higher than rainbow wheel**:  \n   For each value $k$ (1 to 10) on the rainbow wheel, the starry-night wheel must land on $k+3$ to $10$. The number of valid outcomes is $10 - (k+3) + 1 = 8 - k$.  \n   Total favorable outcomes: $\\sum_{k=1}^{10} (8 - k) = 7 + 6 + \\dots + 0 = 28$.  \n   Total possible outcomes: $10 \\times 10 = 100$.  \n   Probability: $\\frac{28}{100} = \\frac{7}{25}$.\n\n2. **Probability wheels match (game ends)**:  \n   There are 10 matching pairs out of 100, so $\\frac{10}{100} = \\frac{1}{10}$.\n\n3. **Probability neither condition is met (continue spinning)**:  \n   This is $1 - \\frac{7}{25} - \\frac{1}{10} = \\frac{50}{50} - \\frac{14}{50} - \\frac{5}{50} = \\frac{31}{50}$.\n\n4. **Expectation equation**:  \n   If the first spin gives a golden ticket, the game restarts with $e + 1$ expected tickets. Otherwise, it restarts with $e$ tickets. Thus:  \n   $$ e = \\frac{7}{25}(e + 1) + \\frac{31}{50}e $$  \n   Multiply through by 50 to eliminate denominators:  \n   $$ 50e = 14(e + 1) + 31e $$  \n   Expand and simplify:  \n   $$ 50e = 14e + 14 + 31e $$  \n   $$ 50e = 45e + 14 $$  \n   $$ 5e = 14 $$  \n   **Final answer**: $e = \\boxed{\\frac{14}{5}}$ golden tickets.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

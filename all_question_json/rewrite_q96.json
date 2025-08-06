@@ -1,0 +1,12 @@
+{
+  "title": "Fairground Prize Ratios",
+  "stem_md": "At the lively village fair, siblings Ellie and Sam play a game at the **Ring Toss Booth**. Each has a **golden ring** and a **silver ring**, and they toss one ring each towards a peg, choosing which ring to toss uniformly at random. \n\n- If both toss **golden rings**, Ellie wins a **small stuffed toy**. \n- If both toss **silver rings**, Ellie wins a **large stuffed toy**. \n- Otherwise, Sam wins a **medium stuffed toy**. \n\nThe prizes come from the booth's stash, not from each other. Let $R_E$ and $R_S$ be the ratios of expected prize value to prize variance for Ellie and Sam, respectively. What is $R_S - R_E$?",
+  "hints": [
+    "Hint 1 – First, list all possible outcomes and their probabilities.",
+    "Hint 2 – Calculate the expected prize values for both Ellie and Sam.",
+    "Hint 3 – Compute the variances using the squared differences from the expected values."
+  ],
+  "detailed_solution_md": "Let's solve step-by-step:\n\n### Step 1: Define Outcomes and Probabilities\n- **Golden (G)** and **Silver (S)** rings are chosen with equal probability ($\\frac{1}{2}$ each).\n- Possible outcomes:\n  1. Both toss **G**: Probability = $\\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}$. Ellie wins a small toy (value = 1).\n  2. Both toss **S**: Probability = $\\frac{1}{4}$. Ellie wins a large toy (value = 3).\n  3. Mixed toss (**G** + **S** or **S** + **G**): Probability = $\\frac{1}{2}$. Sam wins a medium toy (value = 2).\n\n### Step 2: Expected Prize Values\n- **Ellie's expected prize ($E_E$)**:\n  $$E_E = \\frac{1}{4}(1) + \\frac{1}{4}(3) + \\frac{1}{2}(0) = 1$$\n- **Sam's expected prize ($E_S$)**:\n  $$E_S = \\frac{1}{2}(2) + \\frac{1}{2}(0) = 1$$\n\n### Step 3: Variances\n- **Ellie's variance ($V_E$)**:\n  $$V_E = \\frac{1}{4}(1-1)^2 + \\frac{1}{4}(3-1)^2 + \\frac{1}{2}(0-1)^2 = \\frac{1}{4}(0) + \\frac{1}{4}(4) + \\frac{1}{2}(1) = 0 + 1 + \\frac{1}{2} = \\frac{3}{2}$$\n- **Sam's variance ($V_S$)**:\n  $$V_S = \\frac{1}{2}(2-1)^2 + \\frac{1}{2}(0-1)^2 = \\frac{1}{2}(1) + \\frac{1}{2}(1) = 1$$\n\n### Step 4: Compute Ratios $R_E$ and $R_S$\n- **Ellie's ratio ($R_E$)**:\n  $$R_E = \\frac{E_E}{V_E} = \\frac{1}{\\frac{3}{2}} = \\frac{2}{3}$$\n- **Sam's ratio ($R_S$)**:\n  $$R_S = \\frac{E_S}{V_S} = \\frac{1}{1} = 1$$\n\n### Final Answer\n$$R_S - R_E = 1 - \\frac{2}{3} = \\boxed{\\frac{1}{3}}$$",
+  "topic": "statistics",
+  "difficulty": "medium"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Carnival Parade Route Puzzle",
+  "stem_md": "You're organizing a carnival parade with a main route of unknown length $L$. The parade's marching speed is $S$ units per second. \n\n1. If the parade marches at its natural speed, it takes $6$ seconds to traverse the entire route.\n2. If you add a speed boost of $3$ units per second (e.g., by adding energetic dancers), the parade completes the route in $4$ seconds.\n\nFind the length $L$ of the parade route.",
+  "hints": [
+    "Hint 1 – The route length can be expressed in terms of the natural speed $S$ using the first scenario.",
+    "Hint 2 – The boosted speed scenario gives another expression for $L$ in terms of $S$.",
+    "Hint 3 – Set the two expressions for $L$ equal to each other and solve for $S$."
+  ],
+  "detailed_solution_md": "**Step 1:** From the first scenario (natural speed), the route length $L$ is the product of speed $S$ and time $6$ seconds:\n$$ L = 6S $$\n\n**Step 2:** From the second scenario (boosted speed), the speed becomes $S + 3$, and the time is $4$ seconds. Thus:\n$$ L = 4(S + 3) $$\n\n**Step 3:** Equate the two expressions for $L$:\n$$ 6S = 4(S + 3) $$\n\n**Step 4:** Expand and solve for $S$:\n$$ 6S = 4S + 12 $$\n$$ 6S - 4S = 12 $$\n$$ 2S = 12 $$\n$$ S = 6 $$\n\n**Step 5:** Substitute $S = 6$ back into the first equation to find $L$:\n$$ L = 6 \\times 6 = 36 $$\n\n**Final Answer:** The parade route length is $\\boxed{36}$ units.",
+  "topic": "brainteasers",
+  "difficulty": "easy"
+}

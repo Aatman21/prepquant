@@ -1,0 +1,12 @@
+{
+  "title": "Lighthouse Lantern Fuel Calculations",
+  "stem_md": "On average, 7 ships pass by the lighthouse each hour, following a Poisson process. The lighthouse keeper needs 10 minutes to refuel the lantern for each ship's signal. Compute the **sum of the mean and variance** of total refueling time (in hours) for ships arriving in a given 1-hour watch period.",
+  "hints": [
+    "First, model the number of ships as a Poisson random variable with λ=7.",
+    "Convert the per-ship refueling time to hours (10 minutes = 1/6 hours).",
+    "Use linearity of expectation and the property Var(aX) = a²Var(X) for the scaled Poisson variable."
+  ],
+  "detailed_solution_md": "Let $N \\sim \\text{Poisson}(7)$ represent the number of ships arriving in an hour. Each ship requires $\\frac{1}{6}$ hours of refueling time. The total refueling time is $T = \\frac{1}{6}N$.\n\n**Step 1: Compute Mean**\n$$E[T] = E\\left[\\frac{1}{6}N\\right] = \\frac{1}{6}E[N] = \\frac{1}{6} \\times 7 = \\frac{7}{6} \\text{ hours}$$\n\n**Step 2: Compute Variance**\n$$\\text{Var}(T) = \\text{Var}\\left(\\frac{1}{6}N\\right) = \\left(\\frac{1}{6}\\right)^2 \\text{Var}(N) = \\frac{1}{36} \\times 7 = \\frac{7}{36} \\text{ hours}^2$$\n\n**Step 3: Sum Mean and Variance**\n$$E[T] + \\text{Var}(T) = \\frac{7}{6} + \\frac{7}{36} = \\frac{42}{36} + \\frac{7}{36} = \\frac{49}{36} \\text{ hours}$$\n\n**Final Answer:** \\boxed{\\dfrac{49}{36}}",
+  "topic": "probability",
+  "difficulty": "easy"
+}

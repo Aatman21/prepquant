@@ -1,0 +1,12 @@
+{
+  "title": "Orchard Harvest Match",
+  "stem_md": "In a sunny orchard, three fruit pickers each select a crate at random from 6 distinct crate types (labeled 1 through 6). They record their selections. The next day, they each pick another crate independently, again choosing uniformly from the 6 types. \n\nWhat is the probability that the second day's crate selections **exactly match** (in any order) the first day's selections?",
+  "hints": [
+    "Consider the different cases based on how many distinct crate types were picked on the first day.",
+    "Calculate probabilities for: all 3 crates same, exactly 2 types, or all 3 distinct.",
+    "For each case, determine how many permutations of the second day's picks would match the first day's combination."
+  ],
+  "detailed_solution_md": "We condition on the number of distinct crate types ($k$) picked on the first day:\n\n1. **All 3 crates identical** ($k=1$):\n   - Probability: $\\frac{6}{6^3} = \\frac{1}{36}$ (first crate arbitrary, next two must match).\n   - Matching probability: $\\frac{1}{6^3} = \\frac{1}{216}$ (all three must pick the exact same type again).\n\n2. **Two distinct crate types** ($k=2$):\n   - Probability: $1 - \\frac{1}{36} - \\frac{6 \\cdot 5 \\cdot 4}{6^3} = \\frac{5}{12}$.\n   - For types $A \\neq B$, there are 3 valid permutations ($AAB$, $ABA$, $BAA$) out of $6^3$ outcomes.\n   - Matching probability: $\\frac{3}{6^3} = \\frac{1}{72}$.\n\n3. **All 3 crates distinct** ($k=3$):\n   - Probability: $\\frac{6 \\cdot 5 \\cdot 4}{6^3} = \\frac{5}{9}$.\n   - There are $3! = 6$ valid permutations out of $6^3$ outcomes.\n   - Matching probability: $\\frac{6}{6^3} = \\frac{1}{36}$.\n\n**Total probability** via Law of Total Probability:\n$$\n\\frac{1}{36} \\cdot \\frac{1}{216} + \\frac{5}{12} \\cdot \\frac{1}{72} + \\frac{5}{9} \\cdot \\frac{1}{36} = \\boxed{\\frac{83}{3888}}\n$$",
+  "topic": "probability",
+  "difficulty": "medium"
+}

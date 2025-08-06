@@ -1,0 +1,12 @@
+{
+  "title": "The Treehouse Treasure Straddle",
+  "stem_md": "The **Treehouse Treasure Club** has two secret compartments in their hideout:\n\n1. A **Golden Acorn Call Compartment** (GACC) that unlocks when the neighborhood acorn price $A$ rises above the strike price $K$ by the next full moon $T$.\n2. A **Golden Acorn Put Compartment** (GAPC) that unlocks when $A$ falls below $K$ by time $T$.\n\nYou discover that the GAPC's *treasure delta* (sensitivity to acorn price changes) is $\\Delta_{\\text{GAPC}} = -0.31$. What is the *total treasure delta* $\\Delta_{\\text{Straddle}}$ of a **straddle** formed by combining both compartments? Assume the Black-Scholes treasure dynamics hold.",
+  "hints": [
+    "Hint 1 – light nudge: A straddle combines both compartments. How do their deltas add up?",
+    "Hint 2 – deeper clue: The call compartment's delta is related to the put compartment's delta by a simple formula under Black-Scholes.",
+    "Hint 3 – near-full path: $\\Delta_{\\text{GACC}} = 1 + \\Delta_{\\text{GAPC}}$. Now combine both deltas."
+  ],
+  "detailed_solution_md": "Let's solve step-by-step using the treehouse analogy:\n\n1. **Straddle Composition**: A straddle combines 1 GACC and 1 GAPC:\n   $$\\text{Straddle} = \\text{GACC} + \\text{GAPC}$$\n\n2. **Treasure Delta Relationship**: Under Black-Scholes, the deltas satisfy:\n   $$\\Delta_{\\text{GACC}} = 1 + \\Delta_{\\text{GAPC}}$$\n   Given $\\Delta_{\\text{GAPC}} = -0.31$:\n   $$\\Delta_{\\text{GACC}} = 1 + (-0.31) = 0.69$$\n\n3. **Total Delta Calculation**: Sum both deltas:\n   $$\\Delta_{\\text{Straddle}} = \\Delta_{\\text{GACC}} + \\Delta_{\\text{GAPC}} = 0.69 + (-0.31) = 0.38$$\n\n**Final Answer**: The straddle's total treasure delta is $\\boxed{0.38}$.",
+  "topic": "finance",
+  "difficulty": "easy"
+}

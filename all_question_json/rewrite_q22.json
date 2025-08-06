@@ -1,0 +1,12 @@
+{
+  "title": "Festival Picnic Ages",
+  "stem_md": "At the annual city park festival, **9 picnic blankets** are arranged in a row, each hosting a family member of distinct ages (in years). The time between consecutive blanket placements is fixed. The sum of the squares of the ages of all family members equals the square of the **festival organizer's age**. If the organizer is at most **60 years old**, what is the organizer's age?\n\n*Assumptions*:\n- Blanket placements are sequential with uniform time gaps.\n- All ages are positive integers.\n- The organizer's age is $d \\leq 60$.",
+  "hints": [
+    "Express the ages relative to the middle blanket's occupant. Let the spacing between placements be $s$ years.",
+    "After expanding the sum of squares, factor out common terms to relate $d$, $s$, and the middle age $m$.",
+    "Use divisibility by 3 and the constraint $d \\leq 60$ to narrow down possible values of $s$ and $m$."
+  ],
+  "detailed_solution_md": "**Step 1: Model the Ages**\nLet $m$ be the age of the family member on the **middle blanket**, and $s$ be the time gap between consecutive blanket placements. The ages are then:\n$$\\{m-4s,\\, m-3s,\\, \\dots,\\, m,\\, \\dots,\\, m+4s\\}$$\n\n**Step 2: Sum of Squares Condition**\nThe sum of squared ages equals the organizer's squared age:\n$$\\sum_{k=-4}^{4} (m + ks)^2 = d^2$$\nExpanding and simplifying:\n$$\\sum_{k=-4}^{4} (m^2 + 2mks + k^2 s^2) = 9m^2 + s^2 \\sum_{k=-4}^{4} k^2$$\nSince $\\sum_{k=-4}^{4} k^2 = 60$, we get:\n$$d^2 = 9m^2 + 60s^2 \\quad (1)$$\n\n**Step 3: Divisibility by 3**\nFrom (1), $3 \\mid d^2 \\implies 3 \\mid d$. Let $d = 3r$:\n$$9r^2 = 9m^2 + 60s^2 \\implies 3r^2 = 3m^2 + 20s^2$$\n$$r^2 - m^2 = \\frac{20}{3}s^2 \\implies (r-m)(r+m) = \\frac{20}{3}s^2$$\nFor the LHS to be integer, $3 \\mid s$. Let $s = 3t$:\n$$(r-m)(r+m) = 60t^2 \\quad (2)$$\n\n**Step 4: Age Constraints**\nThe youngest age must be positive:\n$$m - 4s \\geq 1 \\implies m \\geq 4s + 1$$\nFrom (1), $d^2 \\geq 9(4s)^2 + 60s^2 = 204s^2$. Since $d \\leq 60$, test $s = 3$ ($t=1$):\n- Substituting $s=3$ into (2):\n$$(r-m)(r+m) = 60$$\nPossible factor pairs of 60 with integer midpoint $r$:\n1. $(10, 6) \\implies r=8,\\, m=2$ → Invalid (yields negative ages).\n2. $(30, 2) \\implies r=16,\\, m=14$ → Valid.\n\n**Step 5: Compute Organizer's Age**\nAges: $\\{2, 5, 8, 11, 14, 17, 20, 23, 26\\}$ years. From $d=3r$:\n$$d = 3 \\times 16 = \\boxed{48}$$\n",
+  "topic": "brainteasers",
+  "difficulty": "hard"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Campfire Woodpile Weight",
+  "stem_md": "A group of friends is preparing for a week-long camping trip. They decide to chop firewood into 100 logs. The weight of each log (in pounds) follows an independent and identical exponential distribution with a rate parameter of $\\frac{1}{25}$. Let $W_i$ denote the weight of the $i^{th}$ log, and $T_{100}$ represent the total weight of all 100 logs. Using Chebyshev’s Inequality, what is an upper bound on $P[T_{100} > 3000]$?",
+  "hints": [
+    "Recall that for an exponential distribution with rate $\\lambda$, the mean and variance are $\\frac{1}{\\lambda}$ and $\\frac{1}{\\lambda^2}$, respectively.",
+    "Chebyshev’s Inequality states that $P[|X - \\mu| > c] \\leq \\frac{\\sigma^2}{c^2}$. First, find the mean and variance of $T_{100}$.",
+    "To apply Chebyshev, rewrite the event $T_{100} > 3000$ in terms of $|T_{100} - \\mu| > c$ and identify $c$."
+  ],
+  "detailed_solution_md": "**Step 1: Determine the mean and variance of a single log's weight.**\n\nGiven that each log's weight $W_i$ follows an exponential distribution with rate $\\lambda = \\frac{1}{25}$:\n\n- Mean of $W_i$: $\\mu = \\frac{1}{\\lambda} = 25$ pounds.\n- Variance of $W_i$: $\\sigma^2 = \\frac{1}{\\lambda^2} = 25^2 = 625$ pounds$^2$.\n\n**Step 2: Compute the mean and variance of the total weight $T_{100}$.**\n\nSince the logs are independent and identically distributed:\n\n- Mean of $T_{100}$: $\\mu_{T} = 100 \\times \\mu = 100 \\times 25 = 2500$ pounds.\n- Variance of $T_{100}$: $\\sigma_{T}^2 = 100 \\times \\sigma^2 = 100 \\times 625 = 62500$ pounds$^2$.\n\n**Step 3: Apply Chebyshev’s Inequality to find the upper bound.**\n\nWe want to find $P[T_{100} > 3000]$. First, rewrite the event in terms of the deviation from the mean:\n\n$P[T_{100} > 3000] = P[T_{100} - 2500 > 500] \\leq P[|T_{100} - 2500| > 500]$.\n\nBy Chebyshev’s Inequality:\n\n$P[|T_{100} - 2500| > 500] \\leq \\frac{\\sigma_{T}^2}{500^2} = \\frac{62500}{250000} = \\frac{1}{4}$.\n\n**Final Answer:**\n\nThe upper bound on $P[T_{100} > 3000]$ is $\\boxed{\\dfrac{1}{4}}$.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

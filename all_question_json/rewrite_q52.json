@@ -1,0 +1,12 @@
+{
+  "title": "Campfire Cooking Area",
+  "stem_md": "Two friends, Alex and Jamie, are preparing a campsite. They each independently pick a number of firewood logs from a pile containing 1 to 5 logs, with each number equally likely. They arrange the logs to form a right-angled cooking area: one side uses all of Alex's logs laid in a straight line, and the other side uses all of Jamie's logs similarly. \n\nWhat is the expected area of the triangular cooking space they can create?",
+  "hints": [
+    "The area of a right triangle is half the product of the two perpendicular sides.",
+    "Since Alex and Jamie choose independently, the expected value of the product is the product of their individual expected choices.",
+    "Calculate the expected number of logs each would pick, then use the area formula."
+  ],
+  "detailed_solution_md": "Let $A$ and $J$ represent the number of logs Alex and Jamie pick, respectively. Both $A$ and $J$ are uniformly distributed over $\\{1, 2, 3, 4, 5\\}$.\n\n1. **Expected Value of $A$ and $J$**: Since the distribution is uniform, the expected number of logs each picks is the average of the possible values:\n   $$ E[A] = E[J] = \\frac{1 + 2 + 3 + 4 + 5}{5} = 3 $$\n\n2. **Area of the Cooking Space**: The area formed is a right triangle with legs of lengths $A$ and $J$, so the area is:\n   $$ \\text{Area} = \\frac{1}{2} \\times A \\times J $$\n\n3. **Expected Area**: Because $A$ and $J$ are independent, the expected area is:\n   $$ E[\\text{Area}] = \\frac{1}{2} \\times E[A] \\times E[J] = \\frac{1}{2} \\times 3 \\times 3 = \\frac{9}{2} $$\n\n**Final Answer**: The expected area of the triangular cooking space is $\\boxed{\\dfrac{9}{2}}$.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

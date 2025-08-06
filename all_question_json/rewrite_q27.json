@@ -1,0 +1,12 @@
+{
+  "title": "Bracelet Braiding Bonanza",
+  "stem_md": "At Camp Craftopia, two campers are braiding friendship bracelets with different speeds. Camper **Sunny** braids at a rate of **3 bracelets per hour**, while Camper **Luna** braids at **6 bracelets per hour**. The camp director wants to calculate the total number of *unique bracelet patterns* they can create together after a very long time, where the number of patterns grows exponentially with their braiding rates. \n\nThe total unique patterns is given by $e^{\\text{Sunny's rate}} + e^{\\text{Luna's rate}} = e^a + e^b$, where $a$ and $b$ are integers. What is the product $a \\times b$? Round intermediate steps to 3 decimal places if needed.",
+  "hints": [
+    "Hint 1 – Think about how each camper's braiding contributes independently to the total patterns.",
+    "Hint 2 – The exponential function $e^x$ represents continuous growth, like how patterns multiply over time.",
+    "Hint 3 – The total patterns are the sum of two separate exponential terms, matching the campers' rates."
+  ],
+  "detailed_solution_md": "Let's solve step-by-step:\n\n1. **Understand the problem**: \n   - Sunny's braiding rate = $3$ bracelets/hour → contributes $e^3$ unique patterns.\n   - Luna's braiding rate = $6$ bracelets/hour → contributes $e^6$ unique patterns.\n\n2. **Total patterns**: \n   Since their braiding is independent, the total is the sum of their individual exponential contributions:\n   $$\\text{Total patterns} = e^3 + e^6.$$\n\n3. **Identify $a$ and $b$**: \n   Comparing to the form $e^a + e^b$, we see $a = 3$ and $b = 6$.\n\n4. **Compute the product**:\n   $$a \\times b = 3 \\times 6 = \\boxed{18}.$$\n\n**Final answer**: The product is $\\mathbf{18}$.",
+  "topic": "pure math",
+  "difficulty": "medium"
+}

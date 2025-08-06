@@ -1,0 +1,12 @@
+{
+  "title": "Campfire Log Stack Eigenvalue",
+  "stem_md": "Imagine stacking logs for a campfire in a triangular pile, where the $k$-th layer contains $k$ logs. Let $\\mathbf{v} = [1, 2, \\dots, n]^T$ represent the number of logs in each layer. Define the matrix $\\mathbf{A} = \\mathbf{v} \\mathbf{v}^T$, which encodes how each layer interacts with others when arranging them. For any fixed $n$, $\\mathbf{A}$ has a single non-zero eigenvalue $\\lambda_n$. Determine the value of $k$ such that $\\frac{\\lambda_n}{n^k}$ converges to a finite, non-zero limit as $n$ grows large.",
+  "hints": [
+    "Consider the trace of $\\mathbf{A}$ and its relation to the sum of eigenvalues.",
+    "The geometric multiplicity of the zero eigenvalue is $n-1$ due to linear dependence in log layers.",
+    "The dominant term in $\\text{trace}(\\mathbf{A})$ scales as $n^3$; match this to $\\lambda_n$'s growth rate."
+  ],
+  "detailed_solution_md": "**Step 1: Trace and Eigenvalues**  \nThe trace of $\\mathbf{A}$ equals the sum of its eigenvalues:  \n$$\\text{trace}(\\mathbf{A}) = \\sum_{i=1}^n \\lambda_i = \\mathbf{v}^T \\mathbf{v} = 1^2 + 2^2 + \\dots + n^2 = \\frac{n(n+1)(2n+1)}{6}.$$  \n\n**Step 2: Multiplicity of Zero Eigenvalue**  \nSince $\\mathbf{A}$'s rows are scalar multiples of each other (each row $k$ is $k$ times the first row), the null space has dimension $n-1$. Thus, the geometric multiplicity of $\\lambda = 0$ is $n-1$. By the inequality $1 \\leq \\text{GM}(\\lambda) \\leq \\text{AM}(\\lambda) \\leq n$, the algebraic multiplicity (AM) of $\\lambda = 0$ must be at least $n-1$. If AM were $n$, the trace would be zero, but $\\text{trace}(\\mathbf{A}) \\neq 0$. Hence, AM is $n-1$, leaving one non-zero eigenvalue $\\lambda_n = \\text{trace}(\\mathbf{A})$.  \n\n**Step 3: Asymptotic Behavior**  \nExpand $\\lambda_n$:  \n$$\\lambda_n = \\frac{n(n+1)(2n+1)}{6} = \\frac{2n^3 + 3n^2 + n}{6}.$$  \nThe dominant term is $\\frac{2n^3}{6} = \\frac{n^3}{3}$. To make $\\frac{\\lambda_n}{n^k}$ converge to a non-zero limit, set $k = 3$:  \n$$\\lim_{n \\to \\infty} \\frac{\\lambda_n}{n^3} = \\frac{1}{3}.$$  \n\n**Final Answer:**  \nThe required value is $\\boxed{3}$.",
+  "topic": "pure math",
+  "difficulty": "hard"
+}

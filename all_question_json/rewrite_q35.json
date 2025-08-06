@@ -1,0 +1,12 @@
+{
+  "title": "Lighthouse Keeper's Lantern Game",
+  "stem_md": "A wandering sailor offers you a game at the lighthouse. You must light a lantern using a fair coin—flip it until the flame catches (heads). If the flame first catches on the $n^{th}$ attempt, the sailor pays you $2^n$ gold doubloons. What's the fair value of this game? If infinite, answer $-1$.",
+  "hints": [
+    "Hint 1 – The number of attempts follows a geometric distribution, like waiting for a ship to appear.",
+    "Hint 2 – Calculate the expected payout by summing over all possible outcomes, weighted by their probabilities.",
+    "Hint 3 – The series diverges because each term in the sum equals 1, leading to an infinite total."
+  ],
+  "detailed_solution_md": "Let $N \\sim \\text{Geom}(1/2)$ represent the number of lantern-lighting attempts until the flame catches. The expected payout is:\n\n$$E[2^N] = \\sum_{n=1}^{\\infty} 2^n P(N = n)$$\n\nSince $P(N = n) = \\frac{1}{2^n}$ for a fair coin:\n\n$$E[2^N] = \\sum_{n=1}^{\\infty} 2^n \\cdot \\frac{1}{2^n} = \\sum_{n=1}^{\\infty} 1 = \\infty$$\n\nThe series diverges, so the fair value is infinite. **Final answer:** $\\boxed{-1}$.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "The Silent Basket Gamma",
+  "stem_md": "In a sunny orchard, pickers can reserve *future fruit baskets* at a fixed price. These baskets contain a mix of apples and oranges, but the *reservation price* is set based on the current market value of apples alone. \n\nA picker reserves a basket that is *deeply unlikely* to be worth picking (the current apple price is far below the reservation price). What is the *basket gamma*—the rate of change in the basket's *pick likelihood* as apple prices fluctuate—for this reservation?",
+  "hints": [
+    "Consider how the pick likelihood changes when the basket is very unlikely to be picked.",
+    "The pick likelihood is almost unaffected by small changes in apple prices in this scenario.",
+    "The second derivative of pick likelihood with respect to apple price is zero for deeply unpicked baskets."
+  ],
+  "detailed_solution_md": "Let’s define the variables:\n- $A$ = current apple price (underlying asset price)\n- $K$ = reservation price (strike price)\n- $P(A)$ = pick likelihood (option price)\n- $\\Gamma$ = basket gamma (gamma of the option)\n\nFor a deeply unpicked basket (deep out-of-the-money call), $A \\ll K$. The pick likelihood $P(A)$ is nearly **zero** and insensitive to small changes in $A$:\n\n1. **First derivative (Delta)**: $\\frac{dP}{dA} \\approx 0$ (pick likelihood doesn’t change).\n2. **Second derivative (Gamma)**: $\\Gamma = \\frac{d^2P}{dA^2} = \\frac{d}{dA}\\left(\\frac{dP}{dA}\\right) \\approx \\frac{d}{dA}(0) = 0$.\n\nThus, the *basket gamma* is:\n\n$$\\boxed{\\Gamma = 0}$$",
+  "topic": "finance",
+  "difficulty": "easy"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Pet Adoption Payoff Puzzle",
+  "stem_md": "At the Happy Paws Rescue Center, you're managing adoption schedules for cats (initial count $C_0 = 7$). You arrange a special adoption deal:\n\n- **Adopt-a-thon Promise**: Guarantee to adopt out cats if their count exceeds 5 ($K_1 = 5$), but\n- **Overflow Control**: Pause adoptions if the count surpasses 10 ($K_2 = 10$) to avoid overcrowding.\n\nWhat are the **maximum** and **minimum** total cats adopted under this plan? Express your answer as $\\text{max}^2 + \\text{min}^2$.",
+  "hints": [
+    "Hint 1 – light nudge: Sketch how adoptions change as the cat count grows from 0 to beyond 10.",
+    "Hint 2 – deeper clue: Break into intervals: $C_T \\leq 5$, $5 < C_T \\leq 10$, and $C_T > 10$. What happens in each?",
+    "Hint 3 – near-full path: The minimum adoptions occur when $C_T \\leq 5$. The maximum occurs when $C_T \\geq 10$."
+  ],
+  "detailed_solution_md": "Let's analyze the adoption payoff $V_T$ based on the final cat count $C_T$:\n\n1. **Case 1: $C_T \\leq 5$**  \n   No adoptions are triggered (count too low):  \n   $$V_T = 0$$\n\n2. **Case 2: $5 < C_T \\leq 10$**  \n   Adoptions equal the excess above 5:  \n   $$V_T = C_T - 5$$\n   *(Example: If $C_T = 8$, adopt $8-5=3$ cats.)*\n\n3. **Case 3: $C_T > 10$**  \n   Adoptions cap at 5 (since adoptions pause at 10, and $10-5=5$):  \n   $$V_T = 10 - 5 = 5$$\n\n**Extremes**:  \n- **Minimum**: $V_T = 0$ (when $C_T \\leq 5$).  \n- **Maximum**: $V_T = 5$ (when $C_T \\geq 10$).  \n\nFinal answer:  \n$$\\boxed{\\text{max}^2 + \\text{min}^2 = 5^2 + 0^2 = \\mathbf{25}}$$",
+  "topic": "finance",
+  "difficulty": "easy"
+}

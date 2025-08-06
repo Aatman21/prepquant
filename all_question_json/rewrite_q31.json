@@ -1,0 +1,12 @@
+{
+  "title": "Squirrel Snack Averages",
+  "stem_md": "Five picnic baskets contain different amounts of acorns. Three baskets have $a$, $b$, and $c$ acorns respectively, while the other two baskets have $x$ and $y$ acorns each. The mischievous squirrels report that the average number of acorns per basket is $\\mu$. What is the average number of acorns in the $x$ and $y$ baskets?\n\nGiven:\n- $a = 5$ acorns (tiny basket)\n- $b = 6$ acorns (small basket)\n- $c = 11$ acorns (medium basket)\n- $\\mu = 20$ acorns average",
+  "hints": [
+    "First calculate the total acorns all baskets should have based on the average.",
+    "Subtract the known acorns ($a + b + c$) from this total to find $x + y$.",
+    "Finally, divide $x + y$ by 2 to get their average."
+  ],
+  "detailed_solution_md": "**Step 1:** Calculate total acorns needed for average $\\mu$\n$$\\text{Total} = \\mu \\times \\text{Number of baskets} = 20 \\times 5 = 100 \\text{ acorns}$$\n\n**Step 2:** Sum known baskets\n$$a + b + c = 5 + 6 + 11 = 22 \\text{ acorns}$$\n\n**Step 3:** Find combined acorns in $x$ and $y$ baskets\n$$x + y = \\text{Total} - (a + b + c) = 100 - 22 = 78 \\text{ acorns}$$\n\n**Step 4:** Compute average of $x$ and $y$\n$$\\text{Average} = \\frac{x + y}{2} = \\frac{78}{2} = 39 \\text{ acorns}$$\n\n**Final Answer:** \\boxed{39}",
+  "topic": "statistics",
+  "difficulty": "easy"
+}

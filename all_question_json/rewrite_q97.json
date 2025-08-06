@@ -1,0 +1,12 @@
+{
+  "title": "Gnome's Blossom Mix-Up",
+  "stem_md": "In the **Enchanted Garden**, a cheerful gnome named Pip tendered a **Moonbloom voucher** worth $x$ petals and $y$ dewdrops to the garden treasurer. By mistake, the treasurer swapped the counts—giving Pip $y$ petals and $x$ dewdrops instead. Pip didn’t notice and spent **5 dewdrops** on a honey crystal. Later, Pip realized the remaining petals and dewdrops were **exactly twice** the original voucher’s value. Pip started with no petals or dewdrops. How much was the voucher worth?\n\n*Notes*:\n- 100 dewdrops = 1 petal (like cents to dollars).\n- The solution involves integer values for $x$ (petals) and $y$ (dewdrops), where $0 \\leq y < 100$.",
+  "hints": [
+    "Hint 1 – Express the original voucher and the mistaken payout in terms of petals (convert dewdrops to fractional petals).",
+    "Hint 2 – After spending 5 dewdrops, the remaining amount equals twice the original voucher. Set up an equation for this.",
+    "Hint 3 – Consider whether the dewdrop count $y$ causes an overflow (≥50) when doubled, adjusting the petal count."
+  ],
+  "detailed_solution_md": "Let’s solve step-by-step:\n\n1. **Original Voucher**:  \n   Pip’s voucher was worth $x$ petals + $y$ dewdrops, or equivalently:  \n   $$V = x + 0.01y \\ \\text{petals}.$$\n\n2. **Mistaken Payout**:  \n   The treasurer gave $y$ petals + $x$ dewdrops, which is:  \n   $$P = y + 0.01x \\ \\text{petals}.$$\n\n3. **After Spending**:  \n   Pip spent 5 dewdrops ($0.05$ petals), leaving:  \n   $$P' = y + 0.01x - 0.05 \\ \\text{petals}.$$\n   This equals **twice** the original voucher:  \n   $$P' = 2V \\implies y + 0.01x - 0.05 = 2x + 0.02y.$$\n\n4. **Rearrange the Equation**:  \n   $$y - 0.02y + 0.01x - 2x = 0.05 \\implies 0.98y - 1.99x = 0.05.$$\n   Multiply by 100 to eliminate decimals:  \n   $$98y - 199x = 5.$$\n\n5. **Solve for Integer Solutions**:  \n   We need integer $x \\geq 0$ and $0 \\leq y < 100$.\n   - Rewrite as $98y = 199x + 5$.\n   - Since $98$ and $199$ are coprime, test $x$ values that make $199x + 5$ divisible by $98$.\n   - For $x = 31$:  \n     $$199 \\times 31 + 5 = 6174 = 98 \\times 63.$$  \n     Thus, $y = 63$.\n\n6. **Verify Overflow**:  \n   - Original $y = 63 \\geq 50$, so doubling it would overflow into petals:  \n     $2y = 126$ → $1$ extra petal + $26$ dewdrops.  \n   - This aligns with the equation’s adjustment.\n\n**Final Answer**:  \nThe voucher was worth **31 petals and 63 dewdrops**, or $\\boxed{31.63}$ petals.",
+  "topic": "brainteasers",
+  "difficulty": "medium"
+}

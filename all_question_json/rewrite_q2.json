@@ -1,0 +1,12 @@
+{
+  "title": "Painting with All Colors",
+  "stem_md": "In a vibrant art studio, there are **5 distinct paint colors** available. Each time you pick up a **brush**, it's loaded with one of these colors, chosen uniformly at random and independently of previous picks. If you grab **7 brushes**, what's the expected number of **unique colors** you'll have on your palette?",
+  "hints": [
+    "Consider each color's presence as a binary outcome: either it appears at least once or not at all.",
+    "Calculate the probability that a specific color *doesn't* appear in any of the 7 brush loads.",
+    "Use the complement rule to find the probability a color appears at least once, then apply linearity of expectation across all 5 colors."
+  ],
+  "detailed_solution_md": "Let $X$ be the number of unique colors collected. Define indicator variables $C_i$ for each color $i$ ($1 \\leq i \\leq 5$):\n\n$$ C_i = \\begin{cases} \n1 & \\text{if color } i \\text{ appears on at least one brush}, \\\\ \n0 & \\text{otherwise.}\n\\end{cases} $$\n\nThen, $X = C_1 + C_2 + \\dots + C_5$. By linearity of expectation:\n\n$$ E[X] = E\\left[\\sum_{i=1}^5 C_i\\right] = \\sum_{i=1}^5 E[C_i]. $$\n\nFor any single color, the probability it **doesn't** appear on a given brush is $\\frac{4}{5}$. For 7 independent brushes:\n\n$$ P(\\text{color } i \\text{ absent}) = \\left(\\frac{4}{5}\\right)^7. $$\n\nThus, the probability it appears **at least once** is:\n\n$$ E[C_i] = 1 - \\left(\\frac{4}{5}\\right)^7. $$\n\nSince all colors are symmetric, the expected count is:\n\n$$ E[X] = 5 \\times \\left(1 - \\left(\\frac{4}{5}\\right)^7\\right) = 5 \\left(1 - \\frac{16384}{78125}\\right) = 5 \\times \\frac{61741}{78125} = \\boxed{\\frac{61741}{15625}}. $$\n\n**Final Answer:** $\\boxed{\\dfrac{61741}{15625}}$ (≈ 3.9513 unique colors).",
+  "topic": "probability",
+  "difficulty": "hard"
+}

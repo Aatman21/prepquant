@@ -1,0 +1,12 @@
+{
+  "title": "The Librarian's Hidden Scroll",
+  "stem_md": "In the quiet corners of the **Old Tome Library**, two ancient scrolls $\\mathcal{X}$ and $\\mathcal{Y}$ contain fading ink measurements. The head librarian whispers:\n\n- *The variance of $\\mathcal{X}$'s ink density is 16 droplets².*\n- *Their covariance is 8 droplets².*\n\nFind the blending constant $\\kappa$ so that $\\mathcal{X}$ and a newly mixed scroll $(\\mathcal{Y} - \\kappa\\mathcal{X})$ become uncorrelated, like two separate whispers in the stacks.",
+  "hints": [
+    "Hint 1 – Recall that uncorrelated scrolls have zero covariance. What condition does this impose?",
+    "Hint 2 – Use bilinearity of covariance to expand $\\text{Cov}(\\mathcal{X}, \\mathcal{Y} - \\kappa\\mathcal{X})$.",
+    "Hint 3 – Substitute the given values into the expanded covariance equation and solve for $\\kappa$."
+  ],
+  "detailed_solution_md": "To ensure $\\mathcal{X}$ and $(\\mathcal{Y} - \\kappa\\mathcal{X})$ are uncorrelated, their covariance must vanish:\n\n1. **Set up the condition**:\n   $$\\text{Cov}(\\mathcal{X}, \\mathcal{Y} - \\kappa\\mathcal{X}) = 0$$\n\n2. **Expand using bilinearity**:\n   $$\\text{Cov}(\\mathcal{X}, \\mathcal{Y}) - \\kappa \\text{Cov}(\\mathcal{X}, \\mathcal{X}) = 0$$\n   (Since $\\text{Cov}(\\mathcal{X}, \\mathcal{X}) = \\text{Var}(\\mathcal{X})$)\n\n3. **Substitute known values**:\n   $$8 - \\kappa \\times 16 = 0$$\n\n4. **Solve for $\\kappa$**:\n   $$\\kappa = \\frac{8}{16} = \\boxed{\\frac{1}{2}}$$\n\nThus, blending with $\\kappa = \\frac{1}{2}$ ensures the scrolls' whispers are independent.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

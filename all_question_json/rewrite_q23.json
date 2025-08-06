@@ -1,0 +1,12 @@
+{
+  "title": "The Librarian's Hidden Path",
+  "stem_md": "In the quiet corners of the **Old Tome Library**, young apprentice **Eli** must deliver a rare scroll from one corner of a wooden study desk to the diagonally opposite corner. The desk is a rectangular prism with side lengths **2 cubits**, **2 cubits**, and **3 cubits**. Eli can scurry at a speed of **2.5 cubits per second**. \n\n*How many seconds will it take Eli to reach the opposite corner along the shortest possible path?* (Hint: Imagine unfolding the desk's surface into a flat parchment to find hidden straight-line routes.)",
+  "hints": [
+    "Consider 'unfolding' the 3D desk into a 2D plane to visualize possible straight paths.",
+    "Two main unfolded paths exist: one forms a right triangle with legs 2 and (2+3), the other with legs 3 and (2+2). Calculate both hypotenuses.",
+    "Compare the path lengths √(2² + 5²) = √29 and √(3² + 4²) = 5. The shorter path (5 cubits) divided by Eli's speed gives the time."
+  ],
+  "detailed_solution_md": "**Step 1: Unfold the desk into 2D planes**  \nTo find the shortest path, we unfold the desk into possible 2D layouts. The two relevant unfoldings are:\n1. Combine the **2-cubit** and **3-cubit** sides into one leg: $2 + 3 = 5$ cubits, with the other leg as **2 cubits**.  \n   - Path hypotenuse: $\\sqrt{2^2 + 5^2} = \\sqrt{4 + 25} = \\sqrt{29}$ cubits.\n2. Combine the two **2-cubit** sides into one leg: $2 + 2 = 4$ cubits, with the other leg as **3 cubits**.  \n   - Path hypotenuse: $\\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = 5$ cubits.\n\n**Step 2: Identify the shortest path**  \nCompare the two path lengths: $\\sqrt{29} \\approx 5.385$ cubits vs. **5 cubits**. The second path is shorter.\n\n**Step 3: Calculate time**  \nTime = Distance / Speed = $5 \\, \\text{cubits} \\, / \\, 2.5 \\, \\text{cubits/sec} = 2 \\, \\text{seconds}$.  \n\n**Final Answer**:  \n\\boxed{2} seconds.",
+  "topic": "brainteasers",
+  "difficulty": "medium"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Lighthouse Lantern Matrix",
+  "stem_md": "A lighthouse keeper maintains a $30\\times30$ grid of lanterns. Each diagonal lantern burns at intensity $30$ units, while all off-diagonal lanterns burn at $1$ unit. The keeper observes two distinct flicker patterns (eigenvalues) $\\lambda_1 \\neq \\lambda_2$ in the grid's behavior. Let $\\lambda = \\begin{bmatrix}\\lambda_1 \\\\ \\lambda_2\\end{bmatrix}$ and $g = \\begin{bmatrix}g_1 \\\\ g_2\\end{bmatrix}$ be the number of independent flicker directions (geometric multiplicities) for each pattern. Compute $\\|\\lambda + g\\|^2_2$.",
+  "hints": [
+    "Hint 1 – The lantern grid behaves like a constant matrix plus a scaled identity. Think about how shifting affects flicker patterns.",
+    "Hint 2 – The all-ones lantern matrix has one bright flicker (eigenvalue 30) and 29 dim ones (eigenvalue 0).",
+    "Hint 3 – Adjust for the diagonal intensity boost: $\\lambda_1 = 29$ (29 directions) and $\\lambda_2 = 59$ (1 direction). Now compute the vector sum."
+  ],
+  "detailed_solution_md": "**Step 1: Matrix Decomposition**  \nThe lantern grid matrix $A$ can be written as:  \n$$A = J_{30} + 29I_{30}$$  \nwhere $J_{30}$ is the all-ones matrix and $I_{30}$ is the identity matrix.  \n\n**Step 2: Eigenvalues of $J_{30}$**  \n- $J_{30}$ has rank 1, so it has:  \n  - 1 nonzero eigenvalue equal to its trace: $\\text{tr}(J_{30}) = 30$ (from 30 diagonal ones).  \n  - 29 zero eigenvalues with geometric multiplicity 29.  \n\n**Step 3: Shift Eigenvalues**  \nAdding $29I_{30}$ shifts all eigenvalues by 29:  \n- $\\lambda_1 = 0 + 29 = 29$ with $g_1 = 29$ independent flicker directions.  \n- $\\lambda_2 = 30 + 29 = 59$ with $g_2 = 1$ direction.  \n\n**Step 4: Vector Sum and Norm**  \nCompute $\\lambda + g$ and its squared norm:  \n$$\\lambda + g = \\begin{bmatrix}29 \\\\ 59\\end{bmatrix} + \\begin{bmatrix}29 \\\\ 1\\end{bmatrix} = \\begin{bmatrix}58 \\\\ 60\\end{bmatrix}$$  \n$$\\|\\lambda + g\\|^2_2 = 58^2 + 60^2 = 3364 + 3600 = 6964$$  \n\n**Final Answer:**  \n$$\\boxed{6964}$$",
+  "topic": "pure math",
+  "difficulty": "medium"
+}

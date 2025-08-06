@@ -1,0 +1,12 @@
+{
+  "title": "Pastry Order Probability",
+  "stem_md": "In a bustling bakery, trays of pastries are being prepared with six distinct types: **Croissants (C)**, **Danishes (D)**, **Éclairs (E)**, **Fruit Tarts (F)**, **Gelatos (G)**, and **Honey Buns (H)**. The baker arranges them randomly on the countertop. \n\nWhat is the probability that all the **flaky pastries (C, D, E)** appear before the first **creamy pastry (F, G, H)**? Assume each pastry type is equally likely to be placed first.",
+  "hints": [
+    "Hint 1 – Consider the probability that the first pastry placed is flaky (C, D, or E).",
+    "Hint 2 – After one flaky pastry is placed, what's the probability the next *new* pastry is also flaky?",
+    "Hint 3 – Chain the probabilities: first flaky, then another flaky (ignoring repeats), then the last flaky before any creamy appears."
+  ],
+  "detailed_solution_md": "We need all three flaky pastries ($C, D, E$) to appear before any creamy pastry ($F, G, H$). This is a chain of conditional probabilities:\n\n1. **First placement**: The probability the first pastry is flaky is $\\frac{3}{6} = \\frac{1}{2}$ (3 flaky out of 6 total).\n\n2. **Second unique flaky**: Given one flaky is already placed, ignore repeats. The next *new* pastry must be one of the remaining 2 flaky types out of 5 unplaced pastries: $\\frac{2}{5}$.\n\n3. **Third unique flaky**: After two flaky pastries are placed, the next *new* pastry must be the last flaky type, with 4 pastries remaining (one is ignored if it's a repeat): $\\frac{1}{4}$.\n\nThe combined probability is the product:\n$$\\frac{1}{2} \\times \\frac{2}{5} \\times \\frac{1}{4} = \\frac{2}{40} = \\boxed{\\frac{1}{20}}$$\n\nAlternatively, count all valid arrangements:\n- Total permutations of 6 pastries: $6! = 720$.\n- Valid arrangements: Flaky pastries ($C, D, E$) in the first 3 positions (any order) and creamy ($F, G, H$) in the last 3. There are $3! \\times 3! = 36$ such arrangements.\n- Probability: $\\frac{36}{720} = \\boxed{\\frac{1}{20}}$.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

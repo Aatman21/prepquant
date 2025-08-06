@@ -1,0 +1,12 @@
+{
+  "title": "Paws and Whiskers Guess",
+  "stem_md": "At the Happy Tails Rescue Center, you and your friend play a game to guess how many **pet beds** are currently in use (between 1 and 1000). Your friend secretly notes the true count $x$. Each round, you guess a number $g$, and your friend tells you whether $g$ is **higher** or **lower** than $x$. Let $n$ be the **minimum number of guesses** needed to always identify $x$, no matter what value your friend chose. Find $n$.",
+  "hints": [
+    "Think about how to **halve the possible range** with each guess.",
+    "What's the maximum number of possibilities you can distinguish with $k$ guesses?",
+    "The answer relates to powers of 2: find the smallest $n$ where $2^n \\geq 1000$."
+  ],
+  "detailed_solution_md": "1. **Strategy**: Use binary search to minimize guesses. Start by guessing the midpoint (500 beds), then adjust based on feedback:\n   - If \"higher,\" the true count $x$ is in $501-1000$.\n   - If \"lower,\" $x$ is in $1-499$.\n\n2. **Mathematical Insight**: Each guess **divides the remaining range by 2**. After $k$ guesses, you can distinguish up to $2^k$ possibilities.\n\n3. **Solve for $n$**: Find the smallest integer $n$ such that $2^n \\geq 1000$.\n   - $2^9 = 512 < 1000$ (too small).\n   - $2^{10} = 1024 \\geq 1000$ (sufficient).\n\n4. **Conclusion**: **$\\boxed{10}$** guesses are needed.",
+  "topic": "brainteasers",
+  "difficulty": "easy"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Fairground Fortune Wheel",
+  "stem_md": "At the village fair, you play a game with a colorful spinning wheel divided into 6 equal sections. Each spin costs a small fee. Here's how it works:\n\n- **Sections 1, 2, 3**: Win a shiny token and spin again.\n- **Sections 4, 5**: Collect all tokens won so far and the game ends.\n- **Section 6**: Lose all tokens and the game ends.\n\nWhat's the **expected number of tokens** you'd win per game?",
+  "hints": [
+    "Consider the probability of winning exactly $k$ tokens before cashing out or busting.",
+    "The game can be modeled as a series of successful spins (1-3) followed by a terminating spin (4-5 or 6).",
+    "The expected value is an infinite sum of $k \\cdot P(\\text{win } k \\text{ tokens})$. Recognize the geometric series pattern."
+  ],
+  "detailed_solution_md": "Let’s calculate the expected number of tokens $E$:\n\n1. **Probability of winning $k$ tokens**:\n   - Spin 1-3 $k$ times in a row: $\\left(\\frac{3}{6}\\right)^k = \\left(\\frac{1}{2}\\right)^k$.\n   - Then spin 4 or 5 (success): $\\frac{2}{6} = \\frac{1}{3}$.\n   - Thus, $P(\\text{win } k \\text{ tokens}) = \\left(\\frac{1}{2}\\right)^k \\cdot \\frac{1}{3}$.\n\n2. **Expected value**:\n   $$E = \\sum_{k=1}^{\\infty} k \\cdot P(\\text{win } k) = \\sum_{k=1}^{\\infty} k \\cdot \\left(\\frac{1}{2}\\right)^k \\cdot \\frac{1}{3}.$$\n\n3. **Simplify the series**:\n   - Factor out $\\frac{1}{3}$: $$E = \\frac{1}{3} \\sum_{k=1}^{\\infty} k \\left(\\frac{1}{2}\\right)^k.$$\n   - Recall the identity for $|r| < 1$: $$\\sum_{k=1}^{\\infty} k r^k = \\frac{r}{(1-r)^2}.$$\n   - Here, $r = \\frac{1}{2}$: $$\\sum_{k=1}^{\\infty} k \\left(\\frac{1}{2}\\right)^k = \\frac{\\frac{1}{2}}{\\left(1-\\frac{1}{2}\\right)^2} = \\frac{\\frac{1}{2}}{\\frac{1}{4}} = 2.$$\n\n4. **Final answer**:\n   $$E = \\frac{1}{3} \\cdot 2 = \\boxed{\\frac{2}{3}}.$$",
+  "topic": "probability",
+  "difficulty": "medium"
+}

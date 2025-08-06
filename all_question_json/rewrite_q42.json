@@ -1,0 +1,12 @@
+{
+  "title": "Bakery Steps Puzzle",
+  "stem_md": "A baker starts the day with $0$ freshly baked croissants on the display shelf. Each hour, they either **add** one croissant ($+1$) or **remove** one croissant ($-1$) from the shelf. After $10$ hours, the shelf must have exactly $4$ croissants. \n\nHow many distinct hour-by-hour sequences of additions/removals satisfy this condition?",
+  "hints": [
+    "Hint 1 – Each hour's action is independent: either +1 or -1 croissant.",
+    "Hint 2 – To end at +4, the total additions must exceed removals by exactly 4.",
+    "Hint 3 – Let $U$ be additions (+1) and $D$ be removals (-1). Solve $U - D = 4$ with $U + D = 10$."
+  ],
+  "detailed_solution_md": "**Step 1: Define Variables**  \nLet $U$ = number of +1 (addition) actions, $D$ = number of -1 (removal) actions.  \n\n**Step 2: Set Up Equations**  \nTotal actions: $U + D = 10$  \nNet croissants: $U - D = 4$  \n\n**Step 3: Solve the System**  \nAdd the equations:  \n$$(U + D) + (U - D) = 10 + 4$$  \n$$2U = 14 \\implies U = 7$$  \nSubstitute back: $7 + D = 10 \\implies D = 3$.  \n\n**Step 4: Count Valid Sequences**  \nThe problem reduces to counting distinct arrangements of $7$ additions and $3$ removals.  \nNumber of sequences: $\\binom{10}{3} = \\frac{10!}{7!3!} = 120$.  \n\n**Final Answer:**  \n\\boxed{120} sequences satisfy the conditions.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

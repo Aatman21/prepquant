@@ -1,0 +1,12 @@
+{
+  "title": "Picnic Blanket Chase",
+  "stem_md": "At the park festival, two friends—Sunny (the fast walker) and Lazy (the slow stroller)—start at the main picnic blanket at noon. Sunny walks briskly around the circular path, while Lazy leisurely moves between picnic spots. Sunny completes a full loop every festival hour, while Lazy takes a whole festival day (12 hours) to circle back. After how many festival hours will Sunny and Lazy meet again at the starting blanket? Express your answer as a fraction if needed.",
+  "hints": [
+    "Hint 1 – Sunny's speed is one full loop per hour, while Lazy's speed is one loop per 12 hours.",
+    "Hint 2 – The relative speed is the difference in their speeds. How much faster is Sunny compared to Lazy?",
+    "Hint 3 – For them to meet again, Sunny must complete exactly one more full loop than Lazy. Set up an equation where Sunny's distance equals Lazy's distance plus one loop."
+  ],
+  "detailed_solution_md": "Let $h$ be the number of festival hours until Sunny and Lazy meet again at the starting blanket.\n\n1. **Distance covered by Sunny**: Since Sunny completes one full loop every hour, in $h$ hours, Sunny covers $h$ loops.\n   $$ \\text{Sunny's distance} = h \\text{ loops} $$\n\n2. **Distance covered by Lazy**: Lazy takes 12 hours to complete one loop, so in $h$ hours, Lazy covers $\\frac{h}{12}$ loops.\n   $$ \\text{Lazy's distance} = \\frac{h}{12} \\text{ loops} $$\n\n3. **Meeting condition**: For Sunny and Lazy to meet again at the starting blanket, Sunny must have covered exactly one more full loop than Lazy.\n   $$ h = \\frac{h}{12} + 1 $$\n\n4. **Solve for $h$**:\n   $$ h - \\frac{h}{12} = 1 $$\n   $$ \\frac{12h - h}{12} = 1 $$\n   $$ \\frac{11h}{12} = 1 $$\n   $$ 11h = 12 $$\n   $$ h = \\frac{12}{11} \\text{ hours} $$\n\n**Final Answer**: They will meet again after $\\boxed{\\dfrac{12}{11}}$ festival hours.",
+  "topic": "brainteasers",
+  "difficulty": "easy"
+}

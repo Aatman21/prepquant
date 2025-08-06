@@ -1,0 +1,12 @@
+{
+  "title": "Sunny Orchard Harvest Probability",
+  "stem_md": "In a sunny orchard, there are initially $r > 0$ ripe (red) fruit baskets and $b > 0$ unripe (black) fruit baskets. Each day, a picker selects one basket at random. If the basket is ripe, it is returned to the orchard. If the basket is unripe, it is replaced with a ripe basket. The probability that the $n^{th}$ basket picked is ripe is a function $f(r, b, n)$. Find $f(8, 12, 11)$ to the nearest hundredth.",
+  "hints": [
+    "Consider the expected number of ripe baskets after each pick.",
+    "Use the Law of Total Expectation to relate the probability at step $n$ to the state at step $n-1$.",
+    "The probability at step $n$ is the expected number of ripe baskets at step $n-1$ divided by the total number of baskets."
+  ],
+  "detailed_solution_md": "Let $R_{n-1}$ be the number of ripe baskets after $n-1$ picks. The probability that the $n^{th}$ pick is ripe is:\n\n$$ f(r, b, n) = E\\left[\\frac{R_{n-1}}{r + b}\\right] $$\n\nUsing the Law of Total Expectation:\n\n$$ E\\left[\\frac{R_{n-1}}{r + b}\\right] = \\frac{E[R_{n-1}]}{r + b} $$\n\nWe can find $E[R_{n-1}]$ recursively. Initially, $E[R_0] = r$. For each step $k$ from 1 to $n-1$:\n\n$$ E[R_k] = E[R_{k-1}] + \\left(1 - \\frac{E[R_{k-1}]}{r + b}\\right) $$\n\nThis is because the expected number of ripe baskets increases by 1 if an unripe basket is picked (probability $1 - \\frac{E[R_{k-1}]}{r + b}$).\n\nSimplifying the recurrence:\n\n$$ E[R_k] = E[R_{k-1}] \\left(1 - \\frac{1}{r + b}\\right) + 1 $$\n\nThis is a linear recurrence relation. The solution is:\n\n$$ E[R_{n-1}] = (r + b) - b \\left(1 - \\frac{1}{r + b}\\right)^{n-1} $$\n\nFor $r = 8$, $b = 12$, and $n = 11$:\n\n$$ E[R_{10}] = 20 - 12 \\left(1 - \\frac{1}{20}\\right)^{10} $$\n\nCalculate $\\left(\\frac{19}{20}\\right)^{10}$:\n\n$$ \\left(\\frac{19}{20}\\right)^{10} \\approx 0.5987 $$\n\nThen:\n\n$$ E[R_{10}] = 20 - 12 \\times 0.5987 \\approx 20 - 7.1844 = 12.8156 $$\n\nFinally, the probability is:\n\n$$ f(8, 12, 11) = \\frac{12.8156}{20} \\approx 0.64 $$\n\n**Final Answer:** $\\boxed{0.64}$",
+  "topic": "probability",
+  "difficulty": "easy"
+}

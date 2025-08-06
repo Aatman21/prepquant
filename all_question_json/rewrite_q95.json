@@ -1,0 +1,12 @@
+{
+  "title": "Mischievous Squirrel's Picnic Baskets",
+  "stem_md": "You're organizing a woodland picnic with two baskets: one is a standard basket with six compartments labeled with acorn counts (1-6 acorns), and the other is a mysterious basket with six compartments whose acorn counts are unknown. When you shake the baskets, acorns spill out, and the total number of acorns that land on the picnic blanket is equally likely to be any integer between 1 and 12, inclusive. What is the total number of acorns hidden in the mysterious basket?",
+  "hints": [
+    "Hint 1 – Each possible total acorn count (1-12) must occur equally often when shaking the baskets.",
+    "Hint 2 – There are 36 possible ways the acorns can spill from the two baskets (6 compartments from each). For equal likelihood, each total must occur exactly 3 times.",
+    "Hint 3 – To get a total of 1 acorn three times, the mysterious basket must have three compartments with 0 acorns. Similarly, to get a total of 12 acorns three times, it must have three compartments with 6 acorns."
+  ],
+  "detailed_solution_md": "Let’s solve step-by-step:\n\n1. **Total combinations**: The standard basket has 6 compartments, and the mysterious basket has 6 compartments. The total number of ways acorns can spill is $6 \\times 6 = 36$.\n\n2. **Equal probability condition**: For each total acorn count (1 through 12) to be equally likely, each must occur exactly $\\frac{36}{12} = 3$ times.\n\n3. **Minimum total (1 acorn)**: To get a total of 1 acorn, the standard basket must show 1 acorn (from its compartment labeled 1), and the mysterious basket must contribute 0 acorns. For this to happen 3 times, the mysterious basket must have **three compartments with 0 acorns**.\n\n4. **Maximum total (12 acorns)**: To get a total of 12 acorns, the standard basket must show 6 acorns (from its compartment labeled 6), and the mysterious basket must contribute 6 acorns. For this to happen 3 times, the mysterious basket must have **three compartments with 6 acorns**.\n\n5. **Summing the mysterious basket's acorns**: The mysterious basket has three compartments with 0 acorns and three compartments with 6 acorns. Thus, the total acorns in the mysterious basket are:\n   $$ 3 \\times 0 + 3 \\times 6 = 18. $$\n\n**Final answer**: The mysterious basket contains a total of $\\boxed{18}$ acorns.",
+  "topic": "brainteasers",
+  "difficulty": "easy"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Toy Paint Consistency Check",
+  "stem_md": "In Santa's workshop, two teams of elves are testing paint consistency:\n\n- **Team Sparkle** measures glitter dispersion variance: $\\text{Var}(S) = 10$ drops²\n- **Team Twinkle** measures shimmer spread variance: $\\text{Var}(T) = 20$ drops²\n\nWhen predicting shimmer drops from glitter drops ($T \\sim \\alpha_S + \\beta_S S$), they find $\\beta_S = 1$.\n\nNow they reverse the prediction: **glitter drops from shimmer drops** ($S \\sim \\alpha_T + \\beta_T T$). What is $\\beta_T$? (If undeterminable, answer $-100$.)",
+  "hints": [
+    "Recall how regression coefficients relate to variances and correlation.",
+    "The product of the two regression coefficients equals the squared correlation coefficient.",
+    "Use the variance ratio: $\\beta_T = \\beta_S \\cdot \\frac{\\text{Var}(S)}{\\text{Var}(T)}$."
+  ],
+  "detailed_solution_md": "Let $r$ be the correlation coefficient between glitter ($S$) and shimmer ($T$) drops. The regression coefficients relate to variances as:\n\n1. **Forward regression** (shimmer from glitter):\n$$\\beta_S = r \\cdot \\frac{\\sigma_T}{\\sigma_S}$$\n\n2. **Reverse regression** (glitter from shimmer):\n$$\\beta_T = r \\cdot \\frac{\\sigma_S}{\\sigma_T}$$\n\n3. Multiply both equations to eliminate $r$:\n$$\\beta_S \\beta_T = r^2 \\cdot \\frac{\\sigma_T}{\\sigma_S} \\cdot \\frac{\\sigma_S}{\\sigma_T} = r^2$$\n\n4. Alternatively, divide the reverse by forward regression:\n$$\\frac{\\beta_T}{\\beta_S} = \\frac{\\sigma_S^2}{\\sigma_T^2}$$\n\n5. Solve for $\\beta_T$ using given variances ($\\sigma_S^2 = 10$, $\\sigma_T^2 = 20$) and $\\beta_S = 1$:\n$$\\beta_T = \\beta_S \\cdot \\frac{\\sigma_S^2}{\\sigma_T^2} = 1 \\cdot \\frac{10}{20} = \\boxed{\\frac{1}{2}}$$\n\n**Final answer:** $\\beta_T = \\frac{1}{2}$",
+  "topic": "statistics",
+  "difficulty": "medium"
+}

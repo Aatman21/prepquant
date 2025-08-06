@@ -1,0 +1,12 @@
+{
+  "title": "Adoption Success Predictions",
+  "stem_md": "At the Happy Paws Rescue Center, we track two factors for each dog's adoption speed: \n1. $b$: bowls of food eaten per day\n2. $p$: hours spent in playpen daily\n\nWe ran two simple regressions:\n- Adoption speed $\\sim \\alpha_1 + \\beta_1 b$ (R² = 0.05)\n- Adoption speed $\\sim \\alpha_2 + \\beta_2 p$ (R² = 0.05)\n\n**Find the lowest possible upper bound** for the R² value when predicting adoption speed using **both factors**: $\\text{Adoption speed} \\sim \\alpha + \\beta' b + \\beta'' p$.",
+  "hints": [
+    "Consider how combining two weak predictors might capture non-linear patterns",
+    "Imagine adoption speed depends on a quadratic function of food intake, but playpen time is just food squared",
+    "Construct an example where the joint model perfectly explains adoption speed while individual regressions fail"
+  ],
+  "detailed_solution_md": "**Step 1: Construct Extreme Case**\n\nLet adoption speed follow a perfect quadratic relationship with food:\n$$\\text{Adoption speed} = (b - 10)^2$$\n\nNow define playpen time as:\n$$p = b^2$$\n\n**Step 2: Evaluate Individual Regressions**\n\n1. Linear model $\\text{Adoption speed} \\sim \\alpha_1 + \\beta_1 b$:\n   - Can't fit quadratic relationship ⇒ Low R² = 0.05\n\n2. Model $\\text{Adoption speed} \\sim \\alpha_2 + \\beta_2 p$:\n   - Rewrites as $\\alpha_2 + \\beta_2 b^2$\n   - Still can't match $(b-10)^2 = b^2 - 20b + 100$ ⇒ Low R² = 0.05\n\n**Step 3: Combined Model Performance**\n\nThe full model:\n$$\\text{Adoption speed} = \\alpha + \\beta' b + \\beta'' p$$\nCan exactly represent the quadratic relationship:\n$$\\alpha = 100, \\beta' = -20, \\beta'' = 1$$\n$$\\Rightarrow 100 - 20b + 1\\cdot b^2 = (b-10)^2$$\n\n**Conclusion**: The upper bound is achievable when predictors combine to perfectly explain the response.\n\n\\boxed{1}",
+  "topic": "statistics",
+  "difficulty": "hard"
+}

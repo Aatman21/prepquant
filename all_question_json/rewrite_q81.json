@@ -1,0 +1,12 @@
+{
+  "title": "Gnome's Blossom Journey",
+  "stem_md": "In the heart of the Enchanted Garden, a group of cheerful gnomes set out from their mushroom campsite to tend magical blossoms. They paddle their tiny leaf boats *upstream* along the Sparkle Brook for **three hours**. Later, they decide to return home but end up paddling *downstream* for **five hours**, which leaves them **32 petals** away from their original campsite (measured along the brook's flow).\n\nThe next morning, they paddle back upstream to their campsite and arrive exactly when the fireflies light up at **7:00 PM**. If the Sparkle Brook flows at a constant speed of **2 petals per hour**, and the gnomes paddle at a steady speed, **what time did they leave their temporary spot the next morning?**\n\n*Express your answer in military time (e.g., 3:15 AM as 0315, 5:30 PM as 1730).*",
+  "hints": [
+    "Hint 1 – The gnomes' effective speed changes based on whether they're paddling with or against the brook's flow.",
+    "Hint 2 – Set up an equation balancing their upstream and downstream travels to find their paddling speed.",
+    "Hint 3 – Use the net displacement (32 petals) and the brook's flow rate to solve for the gnomes' base speed, then calculate the return trip time."
+  ],
+  "detailed_solution_md": "Let $x$ be the gnomes' base paddling speed in **petals per hour**.\n\n1. **Upstream speed**: The brook flows at 2 petals/hour, so their effective speed against the flow is $x - 2$.\n2. **Downstream speed**: With the flow, their effective speed is $x + 2$.\n\n**Net displacement equation**:\n- Upstream travel: $3$ hours $\\times (x - 2)$ petals/hour $= 3x - 6$ petals gained.\n- Downstream travel: $5$ hours $\\times (x + 2)$ petals/hour $= 5x + 10$ petals lost.\n- Net result: They end up $32$ petals downstream, so:\n$$(3x - 6) - (5x + 10) = -32$$\n\n3. **Solve for $x$**:\n$$3x - 6 - 5x - 10 = -32$$\n$$-2x - 16 = -32$$\n$$-2x = -16$$\n$$x = 8 \\text{ petals/hour}$$\n\n4. **Return trip speed**: Upstream at $x - 2 = 6$ petals/hour.\n5. **Time to return**: Distance = $32$ petals, so:\n$$\\text{Time} = \\frac{32}{6} = \\frac{16}{3} \\text{ hours} = 5 \\text{ hours and } 20 \\text{ minutes}.$$\n\n6. **Departure time**: Arrival at 7:00 PM means they left at:\n$$7:00 \\text{ PM} - 5:20 = 1:40 \\text{ PM} \\quad (\\text{or } \\boxed{1340}).$$",
+  "topic": "brainteasers",
+  "difficulty": "medium"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Picnic Blanket Tiles",
+  "stem_md": "A community art project covers the central square with a giant picnic blanket made of $4\\times4$ fabric tiles. Each small tile ($1\\times1$) is either:\n- **Visible** (on the outer edges, with colorful patterns)\n- **Hidden** (completely covered by other tiles, plain white)\n\nHow many small tiles have **at least one colorful pattern** on them?",
+  "hints": [
+    "Think about the total number of small tiles versus how many are completely buried.",
+    "The hidden tiles form a smaller perfect square inside the larger one.",
+    "Calculate $(Total\\ tiles) - (Fully\\ hidden\\ tiles) = 4^3 - 2^3$ using the 3D stacking analogy."
+  ],
+  "detailed_solution_md": "**Step 1: Total Tiles**  \nThe blanket is a 3D stack (though laid flat) with dimensions $4\\times4\\times4$ for volume calculation:  \n$$Total = 4^3 = 64 \\text{ tiles}$$  \n\n**Step 2: Hidden Core Tiles**  \nThe inner plain tiles form a $2\\times2\\times2$ cube (subtracting 1 layer from each side):  \n$$Hidden = 2^3 = 8 \\text{ tiles}$$  \n\n**Step 3: Visible Patterned Tiles**  \nSubtract hidden from total:  \n$$Visible = Total - Hidden = 64 - 8 = 56$$  \n\n**Final Answer:**  \n\\boxed{56} tiles have colorful patterns.",
+  "topic": "brainteasers",
+  "difficulty": "easy"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Toy Workshop Mishaps",
+  "stem_md": "In Santa's bustling toy workshop, the probability of at least one paint spill during an **8-hour** elf shift is $\\frac{8}{9}$. Assume spills occur independently and at a constant rate.  \n\nWhat is the probability of at least one spill in a **30-minute** window?",
+  "hints": [
+    "First, find the probability of *no* spills in the full 8-hour shift.",
+    "Break the 8-hour shift into sixteen 30-minute intervals. What must be true about spills in each interval if there are none in the full shift?",
+    "Let $p$ be the probability of ≥1 spill in 30 minutes. The probability of no spills in 8 hours is $(1-p)^{16}$. Set this equal to the complement of $\\frac{8}{9}$."
+  ],
+  "detailed_solution_md": "**Step 1: Complement for 8-hour shift**  \nGiven $P(\\text{≥1 spill in 8 hours}) = \\frac{8}{9}$, the probability of **no** spills is:  \n$$1 - \\frac{8}{9} = \\frac{1}{9}$$  \n\n**Step 2: Decompose into 30-minute intervals**  \nAn 8-hour shift has $16$ half-hour intervals. Let $p$ be the probability of ≥1 spill in 30 minutes. Since spills are independent:  \n$$P(\\text{no spills in 8 hours}) = (1 - p)^{16}$$  \n\n**Step 3: Equate and solve**  \nSet equal to the complement from Step 1:  \n$$(1 - p)^{16} = \\frac{1}{9}$$  \nTake the 16th root of both sides:  \n$$1 - p = \\left(\\frac{1}{9}\\right)^{1/16}$$  \n$$p = 1 - \\left(\\frac{1}{9}\\right)^{1/16}$$  \n\n**Final Answer:**  \n$$\\boxed{1 - \\left(\\frac{1}{9}\\right)^{1/16}}$$",
+  "topic": "probability",
+  "difficulty": "easy"
+}

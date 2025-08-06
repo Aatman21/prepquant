@@ -1,0 +1,12 @@
+{
+  "title": "The Librarian's Arbitrage Scroll",
+  "stem_md": "In the quiet alcoves of the *Old Tome Library*, you discover:\n\n- A rare *manuscript* priced at $M = 10$ silver coins.\n- A *reading permit* (call option) for the manuscript at $C = 4$ coins, strike $K = 4$.\n- A *return vow* (put option) for the same manuscript at $P = 3$ coins, same strike.\n- *Promise scrolls* (bonds) that pay 1 coin at time $T$ (interest rates are 0%).\n\n**Task:** The librarian whispers that the *Permit-Vow Parity* $C - P = M - K$ is violated. Find an arbitrage strategy using combinations of Manuscripts ($M$), Permits ($C$), Vows ($P$), and Promise Scrolls (bonds). Express your answer as $\\#M + \\#C + \\#P + \\#\\text{Bonds}$.",
+  "hints": [
+    "Hint 1 – The Permit-Vow Parity suggests $C - P$ should equal $M - K$. Check both sides.",
+    "Hint 2 – If one side is cheaper, buy it; if the other is dearer, sell it. Think 'long the undervalued, short the overvalued'.",
+    "Hint 3 – To replicate $M - K$, you'll need to short the manuscript and hold enough bonds to cover the strike."
+  ],
+  "detailed_solution_md": "**Step 1: Verify the Parity Violation**\n\nPermit-Vow Parity states:\n$$ C - P = M - K $$\n\nCalculate both sides:\n- Left side: $C - P = 4 - 3 = 1$ coin.\n- Right side: $M - K = 10 - 4 = 6$ coins.\n\nSince $1 < 6$, the left side ($C - P$) is undervalued, and the right side ($M - K$) is overvalued.\n\n---\n**Step 2: Construct the Arbitrage**\n\n1. **Long the Undervalued ($C - P$):**\n   - Buy 1 Permit ($+1C$).\n   - Sell 1 Vow ($-1P$).\n\n2. **Short the Overvalued ($M - K$):**\n   - Sell 1 Manuscript ($-1M$).\n   - Buy $K = 4$ Promise Scrolls ($+4\\text{Bonds}$) to cover the strike.\n\n---\n**Step 3: Net Position**\n\nCombine the trades:\n$$ -1M + 1C - 1P + 4\\text{Bonds} $$\n\n**Final Answer:**\n$$\\boxed{-1 + 1 - 1 + 4 = 3}$$\n\n*At expiry, all obligations cancel out, leaving a risk-free profit of 3 coins.*",
+  "topic": "finance",
+  "difficulty": "easy"
+}

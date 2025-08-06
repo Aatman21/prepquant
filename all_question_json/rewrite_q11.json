@@ -1,0 +1,12 @@
+{
+  "title": "Bracelet Braiding Bonanza",
+  "stem_md": "At Camp Friendship, Camper Frank starts braiding colorful bracelets. On Day 1, he successfully braids one bracelet. On Day 2, he tries but fails to braid another. For each subsequent day $n \\geq 3$, the probability that Frank successfully braids a bracelet on Day $n$ is equal to the proportion of days he succeeded in the first $n-1$ days.\n\n**Question:** How many bracelets can Frank expect to have braided after 100 days at camp?",
+  "hints": [
+    "Consider how the expected number of successful braidings evolves day by day.",
+    "Set up a recurrence relation for the expected number of bracelets after $n$ days.",
+    "Notice that the recurrence relation simplifies to $E_n = \\frac{n}{2}$, where $E_n$ is the expected number of bracelets after $n$ days."
+  ],
+  "detailed_solution_md": "Let $E_n$ denote the expected number of bracelets Frank has braided after $n$ days.\n\n1. **Base Cases:**\n   - Day 1: Frank braids 1 bracelet. So, $E_1 = 1$.\n   - Day 2: Frank fails to braid. So, $E_2 = 1$ (only the first day's bracelet).\n\n2. **Recurrence Relation:**\n   For $n \\geq 3$, the probability that Frank braids a bracelet on Day $n$ is $\\frac{E_{n-1}}{n-1}$ (the proportion of successful braiding days so far).\n   Therefore, the expected number of bracelets after $n$ days is:\n   $$E_n = E_{n-1} + \\frac{E_{n-1}}{n-1} = E_{n-1} \\left(1 + \\frac{1}{n-1}\\right) = E_{n-1} \\left(\\frac{n}{n-1}\\right)$$\n\n3. **Solving the Recurrence:**\n   Unfolding the recurrence relation:\n   $$E_n = \\frac{n}{n-1} E_{n-1} = \\frac{n}{n-1} \\cdot \\frac{n-1}{n-2} E_{n-2} = \\cdots = \\frac{n}{n-1} \\cdot \\frac{n-1}{n-2} \\cdots \\frac{3}{2} E_2$$\n   Notice that most terms cancel out:\n   $$E_n = n \\cdot \\frac{E_2}{2}$$\n   Since $E_2 = 1$, we have:\n   $$E_n = \\frac{n}{2}$$\n\n4. **Final Answer:**\n   For $n = 100$ days, the expected number of bracelets is:\n   $$E_{100} = \\frac{100}{2} = 50$$\n\n**\\boxed{50}** bracelets expected after 100 days.",
+  "topic": "probability",
+  "difficulty": "medium"
+}

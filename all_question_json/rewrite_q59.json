@@ -1,0 +1,12 @@
+{
+  "title": "Bracelet Braiding Effectiveness",
+  "stem_md": "At Camp Sunshine, the counselors claim their special braiding technique works perfectly for 80% of campers trying to make friendship bracelets. The camp director suspects this claim is exaggerated. To test it, they observe 20 campers using the technique, counting $X$, the number who successfully braid a bracelet. The director tests the null hypothesis $H_0: p = 0.8$ against the alternative $H_a: p < 0.8$ using the rejection region $X \\leq 12$. What is the power of this test if the true success rate is $p = 0.6$?",
+  "hints": [
+    "Power is the probability of correctly rejecting $H_0$ when $H_a$ is true.",
+    "First find $\\beta$, the probability of *not* rejecting $H_0$ when $p=0.6$ (i.e., $P(X > 12)$).",
+    "Calculate $\\beta$ using the binomial formula for $X \\sim \\text{Binomial}(20, 0.6)$, then subtract from 1."
+  ],
+  "detailed_solution_md": "We calculate the power $1 - \\beta$ where $\\beta$ is the probability of failing to reject $H_0$ when $H_a$ is true ($p=0.6$).\n\n1. **Define $\\beta$**:\n   $$\\beta = P(\\text{not rejecting } H_0 \\,|\\, p=0.6) = P(X > 12 \\,|\\, p=0.6)$$\n\n2. **Compute $P(X > 12)$** using the binomial PMF:\n   $$\\beta = \\sum_{i=13}^{20} \\binom{20}{i} 0.6^i 0.4^{20-i}$$\n\n3. **Evaluate the sum** (approximate):\n   $$\\beta \\approx 0.4159$$\n\n4. **Power** is:\n   $$1 - \\beta \\approx 1 - 0.4159 = \\boxed{0.5841}$$\n\n**Final answer**: The power of the test is $\\mathbf{0.5841}$.",
+  "topic": "statistics",
+  "difficulty": "medium"
+}

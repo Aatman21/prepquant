@@ -1,0 +1,12 @@
+{
+  "title": "The Treehouse Treasure Hunt",
+  "stem_md": "The Treehouse Club has a secret stash of **map pieces** hidden in their clubhouse. There are two types of map pieces:\n\n- **Common pieces** (worth $3$ points each)\n- **Rare pieces** (worth $6$ points each)\n\nIf a club member reaches into the stash blindly, the chance of pulling out a **rare piece** is $\\frac{1}{4}$. The **total points** from all the map pieces is a **perfect square**. What is the smallest possible total points the stash could have?",
+  "hints": [
+    "Hint 1 – The probability of picking a rare piece tells you the ratio of common to rare pieces in the stash.",
+    "Hint 2 – Group the pieces into sets where each set has the same ratio as the overall stash. What's the point value of one such set?",
+    "Hint 3 – The total points must be a perfect square. How many of these sets do you need to multiply their point value into a perfect square?"
+  ],
+  "detailed_solution_md": "Let’s solve step by step:\n\n1. **Probability to Ratio Conversion**:  \n   The probability of picking a rare piece is $\\frac{1}{4}$. This means that for every rare piece, there are $3$ common pieces (since $\\frac{\\text{rare}}{\\text{rare} + \\text{common}} = \\frac{1}{4}$ implies $\\text{common} = 3 \\times \\text{rare}$).\n\n2. **Grouping Pieces**:  \n   We can group the pieces into **sets** of $3$ common and $1$ rare piece. The total points per set are:  \n   $$3 \\times 3 + 1 \\times 6 = 9 + 6 = 15 \\text{ points}.$$\n\n3. **Perfect Square Condition**:  \n   The total points must be a perfect square. Let $n$ be the number of such sets. Then:  \n   $$\\text{Total points} = 15n.$$  \n   The smallest $n$ for which $15n$ is a perfect square occurs when $n = 15$ (since $15 \\times 15 = 225 = 15^2$).\n\n4. **Final Answer**:  \n   The smallest possible total points is $\\boxed{225}$.",
+  "topic": "brainteasers",
+  "difficulty": "easy"
+}

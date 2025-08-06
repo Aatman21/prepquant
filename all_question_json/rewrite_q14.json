@@ -1,0 +1,12 @@
+{
+  "title": "Masterpiece in Ten Strokes",
+  "stem_md": "In a bustling art studio, an apprentice aims to create a perfect sequence of **10 consecutive brushstrokes** with a special **balanced brush** (50% chance of a smooth stroke, 50% chance of a smudge). Each attempt consumes one canvas. \n\n*On average, how many canvases must the apprentice use to achieve 10 flawless strokes in a row?*",
+  "hints": [
+    "Hint 1 – Consider defining the expected canvases needed when you already have $k$ consecutive smooth strokes.",
+    "Hint 2 – Set up a recursive relationship: if the next stroke smudges, you restart; if it's smooth, you progress toward 10.",
+    "Hint 3 – Solve the recursion by generalizing for $k$ strokes and summing the geometric series that emerges."
+  ],
+  "detailed_solution_md": "Let $E_k$ be the expected number of canvases needed to achieve 10 consecutive smooth strokes, given that you already have $k$ consecutive smooth strokes. We seek $E_0$.\n\n**Boundary Condition:**\n- $E_{10} = 0$ (goal already achieved).\n\n**Recursive Relations:**\n1. For $k=9$:\n   - With probability $\\frac{1}{2}$, the next stroke is smooth (total canvases: $1 + E_{10} = 1$).\n   - With probability $\\frac{1}{2}$, it smudges (total canvases: $1 + E_0$).\n   Thus: $$E_9 = \\frac{1}{2}(1) + \\frac{1}{2}(1 + E_0) = 1 + \\frac{1}{2}E_0.$$\n\n2. For $k=8$:\n   - Smooth: $1 + E_9 = 1 + 1 + \\frac{1}{2}E_0$.\n   - Smudged: $1 + E_0$.\n   Thus: $$E_8 = \\frac{1}{2}(2 + \\frac{1}{2}E_0) + \\frac{1}{2}(1 + E_0) = \\frac{3}{2} + \\frac{3}{4}E_0.$$\n\n3. Generalizing for $E_{10-k}$:\n   $$E_{10-k} = (2 - \\frac{1}{2^{k-1}}) + (1 - \\frac{1}{2^k})E_0.$$\n\n4. For $k=10$ ($E_0$):\n   $$E_0 = (2 - \\frac{1}{2^9}) + (1 - \\frac{1}{2^{10}})E_0.$$\n   Solving:\n   $$E_0 - (1 - \\frac{1}{1024})E_0 = 2 - \\frac{1}{512},$$\n   $$\\frac{1}{1024}E_0 = 2 - \\frac{1}{512},$$\n   $$E_0 = 1024 \\times (2 - \\frac{1}{512}) = 2048 - 2 = 2046.$$\n\n**Final Answer:**\nThe apprentice needs **2046 canvases** on average to achieve 10 flawless strokes.",
+  "topic": "probability",
+  "difficulty": "medium"
+}

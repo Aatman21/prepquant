@@ -1,0 +1,12 @@
+{
+  "title": "Art Studio Showdown",
+  "stem_md": "An art studio is hosting a painting competition with 128 artists, each with a unique skill level. The rules state:\n\n1. When two artists compete, the one with higher skill always wins.\n2. Winners advance to the next round until only one remains.\n\nWhat's the probability that the **top-skilled** and **second-top-skilled** artists will face each other in the final round?",
+  "hints": [
+    "The top artist will always reach the final since no one can defeat them.",
+    "The second-best must avoid being placed in the same initial half as the top artist to reach the final.",
+    "There are 127 possible initial positions for the second-best artist, and 64 of these avoid the top artist's half."
+  ],
+  "detailed_solution_md": "Let's solve step-by-step:\n\n1. **Top Artist's Path**: The artist with the highest skill ($A_1$) will always reach the final because no opponent can defeat them.\n\n2. **Second-Best's Condition**: The second-best artist ($A_2$) will reach the final **only if** they are in the opposite half of the initial bracket from $A_1$. Otherwise, they'll face $A_1$ earlier and lose.\n\n3. **Total Possible Positions**: There are 127 other artists besides $A_1$, so $A_2$ has 127 possible initial positions.\n\n4. **Favorable Positions**: The competition starts by splitting 128 artists into two halves of 64. For $A_2$ to avoid $A_1$'s half, they must be in the other 64 positions. Thus, there are 64 favorable spots.\n\n5. **Probability Calculation**: The probability is the ratio of favorable to total positions:\n   $$P = \\frac{64}{127}$$\n\n**Final Answer**: $\\boxed{\\dfrac{64}{127}}$",
+  "topic": "probability",
+  "difficulty": "medium"
+}

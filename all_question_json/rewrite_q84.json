@@ -1,0 +1,12 @@
+{
+  "title": "Campfire Log Length",
+  "stem_md": "Two friends at a mountain cabin are preparing firewood. One splits a large log into $2^{1000}$ kindling pieces, while the other chops another log into $5^{1000}$ chunks. They decide to combine their counts by writing the numbers side by side to form a new number, say $x$. \n\n**How many digits does $x$ have?**",
+  "hints": [
+    "Hint 1 – Recall that the number of digits in a positive integer $n$ is given by $\\lfloor \\log_{10} n \\rfloor + 1$.",
+    "Hint 2 – Consider the sum $\\lfloor 1000 \\log_{10} 2 \\rfloor + \\lfloor 1000 \\log_{10} 5 \\rfloor + 2$. What bounds can you place on this sum?",
+    "Hint 3 – Use the fact that $\\log_{10} 2 + \\log_{10} 5 = 1$ to simplify the bounds and narrow down the possible values."
+  ],
+  "detailed_solution_md": "To determine the number of digits in $x$, which is the concatenation of $2^{1000}$ and $5^{1000}$, we follow these steps:\n\n1. **Number of Digits Formula**: The number of digits in a positive integer $n$ is given by $\\lfloor \\log_{10} n \\rfloor + 1$.\n\n2. **Digits in $2^{1000}$ and $5^{1000}$**: \n   - Digits in $2^{1000}$: $\\lfloor 1000 \\log_{10} 2 \\rfloor + 1$.\n   - Digits in $5^{1000}$: $\\lfloor 1000 \\log_{10} 5 \\rfloor + 1$.\n\n3. **Total Digits in $x$**: Since $x$ is the concatenation of the two numbers, the total digits is the sum of the digits in each number:\n   $$\\text{Total digits} = \\lfloor 1000 \\log_{10} 2 \\rfloor + \\lfloor 1000 \\log_{10} 5 \\rfloor + 2.$$\n\n4. **Bounds on the Sum**: \n   - **Upper Bound**: Since $\\lfloor x \\rfloor \\leq x$ for any real $x$,\n     $$\\lfloor 1000 \\log_{10} 2 \\rfloor + \\lfloor 1000 \\log_{10} 5 \\rfloor \\leq 1000 (\\log_{10} 2 + \\log_{10} 5) = 1000 \\log_{10} 10 = 1000.$$\n     Thus, the total digits $\\leq 1000 + 2 = 1002$.\n   - **Lower Bound**: Since $\\lfloor x \\rfloor > x - 1$,\n     $$\\lfloor 1000 \\log_{10} 2 \\rfloor + \\lfloor 1000 \\log_{10} 5 \\rfloor > 1000 (\\log_{10} 2 + \\log_{10} 5) - 2 = 1000 - 2 = 998.$$\n     Thus, the total digits $> 998 + 2 = 1000$.\n\n5. **Narrowing Down**: The total digits must be either 1001 or 1002. To determine which, note that $1000 \\log_{10} 2$ and $1000 \\log_{10} 5$ are not integers (since $\\log_{10} 2$ and $\\log_{10} 5$ are irrational). Therefore, the sum of their floor functions cannot be exactly 1000, so it must be 999. Adding 2 gives:\n   $$\\text{Total digits} = 999 + 2 = 1001.$$\n\n**Final Answer**: $\\boxed{1001}$.",
+  "topic": "brainteasers",
+  "difficulty": "medium"
+}

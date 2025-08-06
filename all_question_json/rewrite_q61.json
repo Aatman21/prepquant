@@ -1,0 +1,12 @@
+{
+  "title": "Sandcastle Arbitrage",
+  "stem_md": "You and your friend are building sandcastles on the beach, using buckets of wet sand ($S = 110$ buckets) and decorative shells as strike markers ($E = 100$ shells). Your friend claims there's a mispricing in the tide-defense options:\n\n- A **defensive moat** (put option) costs $P = 2$ buckets to build.\n- They say if the **tower permit** (call option) is priced below $14$ buckets, you should build as many towers as possible.\n\nAssuming no sand is lost to wind (no dividends), is your friend correct? If not, what's the correct threshold bucket price for the tower permit to exploit this?",
+  "hints": [
+    "Hint 1 – The value of a tower permit (call) is tied to the sandcastle's size, strike shells, and moat cost.",
+    "Hint 2 – The equilibrium relationship is: $C = S - E + P$ when no sand is lost (no dividends or time decay).",
+    "Hint 3 – Plug in the given values: $C = 110 - 100 + 2$. Any tower permit priced below this result is a bargain."
+  ],
+  "detailed_solution_md": "Let's derive the fair price for the tower permit (call option) step-by-step:\n\n1. **Sandcastle Parity Principle** (analogous to put-call parity) states:\n   $$ C = S - E + P $$\n   where:\n   - $C$ = Tower permit (call) price in buckets\n   - $S$ = Current sandcastle size (110 buckets)\n   - $E$ = Strike shells (100 shells)\n   - $P$ = Defensive moat (put) cost (2 buckets)\n\n2. Since no sand is lost to wind (no dividends or time decay), the equation simplifies as shown.\n\n3. Plugging in the values:\n   $$ C = 110 - 100 + 2 $$\n   $$ C = 10 + 2 $$\n   $$ C = 12 \\text{ buckets} $$\n\n4. **Arbitrage Condition**: Any tower permit priced **below** $\\boxed{12}$ buckets would allow risk-free profit by building towers and adjusting moats.\n\n**Conclusion**: Your friend's threshold of 14 buckets is incorrect. The correct arbitrage threshold is **12 buckets**.",
+  "topic": "finance",
+  "difficulty": "medium"
+}

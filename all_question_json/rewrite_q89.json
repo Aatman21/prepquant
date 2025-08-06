@@ -1,0 +1,12 @@
+{
+  "title": "Carnival Float Prize Strategy",
+  "stem_md": "At the carnival parade, you can participate in a game where you spin a colorful wheel divided into 10 equal sections. Nine sections display different float numbers (1 through 9), and one section shows a jester (representing a loss). You can spin repeatedly and decide when to stop. Each time you land on a float number, you add that number to your total prize tokens. If you land on the jester, you lose all your accumulated tokens. To maximize your expected winnings, you should stop once you have at least $k$ tokens. Find $k$.",
+  "hints": [
+    "Consider the expected value of continuing to spin versus stopping.",
+    "Calculate the expected gain from one more spin, considering both the probability of landing on a float number and the risk of landing on the jester.",
+    "Set up an equation where the expected value of continuing equals your current token count to find the optimal stopping point."
+  ],
+  "detailed_solution_md": "Let $E$ be the expected number of tokens when playing optimally. For each spin, there are two possible outcomes:\n\n1. **Land on a float number (1-9)**: This occurs with probability $\\frac{9}{10}$. The average value of the float numbers is $\\frac{1+2+\\dots+9}{9} = 5$. If you continue spinning, your expected total becomes $5 + E$.\n2. **Land on the jester**: This occurs with probability $\\frac{1}{10}$, and you lose all tokens, resulting in a total of $0$.\n\nThe expected value $E$ is the weighted average of these outcomes:\n$$ E = \\frac{9}{10}(5 + E) + \\frac{1}{10}(0) $$\n\nNow, solve for $E$:\n\n1. Expand the equation:\n$$ E = \\frac{9}{10} \\times 5 + \\frac{9}{10}E $$\n$$ E = 4.5 + 0.9E $$\n\n2. Subtract $0.9E$ from both sides:\n$$ E - 0.9E = 4.5 $$\n$$ 0.1E = 4.5 $$\n\n3. Divide both sides by $0.1$:\n$$ E = \\frac{4.5}{0.1} $$\n$$ E = 45 $$\n\n**Optimal stopping point**: You should stop once you have at least $\\boxed{45}$ tokens.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

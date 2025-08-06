@@ -1,0 +1,12 @@
+{
+  "title": "Gnome's Blossom Journey",
+  "stem_md": "In an enchanted garden, a cheerful gnome named Pip tends to magical plants that grow along a winding path. Each dawn, Pip stands at the central blossom (position 0) and decides where to wander next:\n\n- With a *whimsical chance* $w$, Pip skips joyfully to the next blossom to the right (position +1).\n- Otherwise, with chance $1-w$, Pip trudges to the previous blossom left (position -1).\n\nThe garden’s magic ensures Pip’s choices are independent each day. If $w = \\frac{1}{3}$, what is the probability Pip **ever** reaches the first blossom to the right (position +1)?",
+  "hints": [
+    "Hint 1 – Consider Pip’s first move: what happens if they skip right immediately?",
+    "Hint 2 – If Pip moves left first, they must return to the center before reaching the right blossom. How does this recursion help?",
+    "Hint 3 – Let $x$ be the probability of ever reaching +1. Set up an equation by conditioning on the first move: $x = w + (1-w)x^2$."
+  ],
+  "detailed_solution_md": "Let $x$ be the probability Pip ever reaches the first right blossom (+1). We condition on Pip’s first move:\n\n1. **Right skip (probability $w$)**: Pip reaches +1 immediately. Contribution: $w \\cdot 1 = w$.\n2. **Left step (probability $1-w$)**: Pip moves to -1. To reach +1, Pip must first return to 0 (probability $x$, by symmetry) **and** then proceed to +1 (another probability $x$). Contribution: $(1-w) \\cdot x^2$.\n\nCombining these, the total probability satisfies:\n$$ x = w + (1-w)x^2 $$\n\nRearrange to form a quadratic equation:\n$$ (1-w)x^2 - x + w = 0 $$\n\nSolutions are:\n$$ x = \\frac{1 \\pm \\sqrt{1 - 4w(1-w)}}{2(1-w)} = \\frac{1 \\pm |1-2w|}{2(1-w)} $$\n\nFor $w < \\frac{1}{2}$, the valid root (since $x \\leq 1$) is:\n$$ x = \\frac{w}{1-w} $$\n\nSubstitute $w = \\frac{1}{3}$:\n$$ x = \\frac{\\frac{1}{3}}{1 - \\frac{1}{3}} = \\frac{\\frac{1}{3}}{\\frac{2}{3}} = \\boxed{\\frac{1}{2}} $$",
+  "topic": "probability",
+  "difficulty": "medium"
+}

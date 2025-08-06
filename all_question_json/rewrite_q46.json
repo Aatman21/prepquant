@@ -1,0 +1,12 @@
+{
+  "title": "Art Studio Race",
+  "stem_md": "In a vibrant art studio, three artists—**Luna**, **Duke**, and **Chip**—are racing to complete a **10-meter mural**. Each artist paints at a constant speed. The results are:\n\n- **Luna** finishes first, **Duke** second, and **Chip** third.\n- When **Luna** finishes, **Duke** has 2 meters left to paint.\n- When **Duke** finishes, **Chip** has 2 meters left to paint.\n\nAt the moment **Luna** completes the mural, how many meters does **Chip** have left to paint?",
+  "hints": [
+    "Hint 1 – Think about the relative distances each artist paints in the same time.",
+    "Hint 2 – Express Duke's speed in terms of Chip's speed, then Luna's speed in terms of Duke's.",
+    "Hint 3 – Use the speed ratios to find how far Chip paints by the time Luna finishes."
+  ],
+  "detailed_solution_md": "Let’s solve step-by-step:\n\n1. **Define speeds**: Let $s_C$ be **Chip**'s speed. \n   - When **Duke** finishes 10 meters, **Chip** has painted $10 - 2 = 8$ meters. \n   - Since they painted for the same time, $\\frac{10}{s_D} = \\frac{8}{s_C} \\implies s_D = \\frac{10}{8}s_C = \\frac{5}{4}s_C$.\n\n2. **Relate Luna and Duke**: When **Luna** finishes 10 meters, **Duke** has painted $10 - 2 = 8$ meters. \n   - Time taken: $\\frac{10}{s_L} = \\frac{8}{s_D} \\implies s_L = \\frac{10}{8}s_D = \\frac{5}{4}s_D$.\n   - Substitute $s_D$: $s_L = \\frac{5}{4} \\cdot \\frac{5}{4}s_C = \\frac{25}{16}s_C$.\n\n3. **Find Chip’s progress when Luna finishes**: \n   - Time taken by Luna: $t = \\frac{10}{s_L} = \\frac{10}{(25/16)s_C} = \\frac{160}{25}s_C^{-1}$.\n   - Distance Chip paints: $d_C = s_C \\cdot t = s_C \\cdot \\frac{160}{25}s_C^{-1} = \\frac{160}{25} = 6.4$ meters.\n   - **Remaining distance**: $10 - 6.4 = \\boxed{3.6}$ meters.\n\n**Final Answer**: **Chip** is **3.6 meters** away from finishing when **Luna** completes the mural.",
+  "topic": "brainteasers",
+  "difficulty": "easy"
+}

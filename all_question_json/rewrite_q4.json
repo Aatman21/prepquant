@@ -1,0 +1,12 @@
+{
+  "title": "Wilderness Supplies Probability",
+  "stem_md": "During a group camping trip, each person draws five items from a large supply bin containing 52 unique wilderness tools. If $q$ is the probability that someone draws a *matching set* (four of the five items are identical, like four compasses or four hatchets), find the reciprocal of $q$.",
+  "hints": [
+    "First, calculate the total number of ways to choose any five items from the bin.",
+    "For the matching set: pick which type of item appears four times, then account for the fifth item being different.",
+    "Divide the number of favorable outcomes by the total possible outcomes to find $q$, then take its reciprocal."
+  ],
+  "detailed_solution_md": "**Step 1: Total possible combinations**  \nThe bin has 52 unique tools. The number of ways to choose any five is given by the combination formula:  \n$$\\text{Total} = \\binom{52}{5} = \\frac{52!}{5!(52-5)!}$$  \n\n**Step 2: Counting matching sets**  \nA *matching set* requires:  \n1. **Choose the type of item** that appears four times. There are 13 distinct types (e.g., compasses, hatchets).  \n2. **Choose the fifth item**, which must be different. Since 4 items of one type are already selected, 48 tools remain ($52 - 4 = 48$).  \nThus, the number of favorable outcomes is:  \n$$13 \\times 48$$  \n\n**Step 3: Calculate probability**  \nThe probability $q$ is the ratio of favorable outcomes to total outcomes:  \n$$q = \\frac{13 \\times 48}{\\binom{52}{5}}$$  \n\n**Step 4: Compute reciprocal**  \nUsing the value of $\\binom{52}{5} = 2,598,960$:  \n$$q = \\frac{624}{2,598,960} = \\frac{1}{4165}$$  \nThe reciprocal is:  \n$$\\boxed{4165}$$",
+  "topic": "probability",
+  "difficulty": "easy"
+}

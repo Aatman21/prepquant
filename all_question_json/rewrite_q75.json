@@ -1,0 +1,12 @@
+{
+  "title": "Bracelet Tiebreaker",
+  "stem_md": "At summer camp, two friends, **Ava** and **Ben**, are trading friendship bracelets. Their trading rules are:\n\n1. They start with **0 bracelets each**. After each trade, one gains a bracelet (+1) while the other’s count stays the same (e.g., 1-0 or 0-1).\n2. If one reaches **4 bracelets** before the other, they win *unless* both have **3 bracelets** (a \"tie\"). In a tie, the winner must gain **2 more bracelets** than the other.\n\n**Question**: How many distinct trading sequences lead to a **4-4 bracelet tie**?",
+  "hints": [
+    "First, count how many ways Ava and Ben can reach a 3-3 tie.",
+    "From a 3-3 tie, what are the possible next two trades to reach 4-4?",
+    "Multiply the number of 3-3 sequences by the 2 possible paths to 4-4 (Ava-then-Ben or Ben-then-Ava)."
+  ],
+  "detailed_solution_md": "### Step 1: Count paths to 3-3\nTo reach 4-4, Ava and Ben must first tie at 3-3. The number of sequences to reach 3-3 is the number of ways to arrange 3 wins for Ava and 3 wins for Ben in any order. This is a combination problem:\n$$\\text{Paths to 3-3} = \\binom{6}{3} = 20.$$\n\n### Step 2: Extend to 4-4\nFrom 3-3, the next two trades must result in *both* gaining one bracelet (otherwise the game ends). There are **2** valid sequences:\n1. Ava gains one, then Ben gains one: **3-3 → 4-3 → 4-4**.\n2. Ben gains one, then Ava gains one: **3-3 → 3-4 → 4-4**.\n\n### Step 3: Total sequences\nMultiply the paths to 3-3 by the 2 extensions:\n$$\\text{Total 4-4 sequences} = 20 \\times 2 = \\boxed{40}.$$\n\n**Final Answer**: There are **40** distinct trading sequences to reach 4-4.",
+  "topic": "probability",
+  "difficulty": "easy"
+}

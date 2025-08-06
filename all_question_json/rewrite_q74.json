@@ -1,0 +1,12 @@
+{
+  "title": "Pastry Pair Probability",
+  "stem_md": "In a bustling bakery, two batches of pastries are cooling on the counter. Each batch can be any of 6 types: croissants ($C$), danishes ($D$), eclairs ($E$), fruit tarts ($F$), gingerbread ($G$), or honey buns ($H$). The baker wants to pair one pastry from each batch to create a dessert combo. \n\nWhat is the probability that the combo's 'sweetness score' (product of the pastry types' numerical values, assigned as $C=1$, $D=2$, $E=3$, $F=4$, $G=5$, $H=6$) is divisible by 6?",
+  "hints": [
+    "Hint 1 – light nudge: First, consider combos where at least one pastry is a honey bun ($H=6$). How many such combos exist?",
+    "Hint 2 – deeper clue: Next, think about combos without honey buns but where one pastry is a danish or fruit tart ($D=2$ or $F=4$) and the other is an eclair ($E=3$).",
+    "Hint 3 – near-full path: Count all valid combos (with $H=6$ or $D/F$ paired with $E$), then divide by the total number of possible combos (36)."
+  ],
+  "detailed_solution_md": "**Step 1: Count combos with honey buns ($H=6$)**\n- If one pastry is $H=6$, the product is always divisible by 6.\n- Number of combos where first batch is $H$: $(H, X)$ where $X$ is any pastry. There are 6 such combos.\n- Number of combos where second batch is $H$: $(X, H)$ where $X$ is any pastry. There are 6 such combos.\n- However, $(H, H)$ is counted twice, so total unique combos: $6 + 6 - 1 = 11$.\n\n**Step 2: Count combos without honey buns but divisible by 6**\n- The product must include factors of 2 and 3. Since $H=6$ is excluded, we need:\n  - One pastry is $D=2$ or $F=4$ (provides factor of 2).\n  - The other pastry is $E=3$ (provides factor of 3).\n- Possible ordered pairs: $(D, E)$, $(F, E)$, $(E, D)$, $(E, F)$.\n- Total of 4 combos.\n\n**Step 3: Total valid combos and probability**\n- Total valid combos: $11 (from Step 1) + 4 (from Step 2) = 15$.\n- Total possible combos: $6 \\times 6 = 36$.\n- Probability: $\\frac{15}{36} = \\frac{5}{12} \\approx 41.67\\%$.\n\n**Final answer:** $\\boxed{\\dfrac{5}{12}}$",
+  "topic": "probability",
+  "difficulty": "easy"
+}

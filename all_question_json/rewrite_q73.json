@@ -1,0 +1,12 @@
+{
+  "title": "Carnival Float Formation",
+  "stem_md": "In planning a grand carnival parade, you need to distribute $18$ identical decorative streamers among $6$ distinct parade floats. Each float can receive any number of streamers (including zero). \n\n**How many unique ways** can you allocate these streamers across the floats, considering only the total count per float (not the order)?",
+  "hints": [
+    "Think of each streamer as a 'star' and the divisions between floats as 'bars'.",
+    "This is equivalent to finding non-negative integer solutions to $s_1 + s_2 + \\dots + s_6 = 18$, where $s_i$ is the streamers on the $i^{th}$ float.",
+    "Use the stars and bars theorem: the number of solutions is $\\binom{18 + 6 - 1}{6 - 1}$."
+  ],
+  "detailed_solution_md": "To determine the number of ways to distribute $18$ identical streamers among $6$ distinct floats, we model this as finding the number of non-negative integer solutions to the equation:\n\n$$s_1 + s_2 + s_3 + s_4 + s_5 + s_6 = 18$$\n\nwhere $s_i \\geq 0$ represents the streamers on the $i^{th}$ float. This is a classic **stars and bars** problem. The formula for the number of non-negative solutions to $x_1 + x_2 + \\dots + x_k = n$ is:\n\n$$\\binom{n + k - 1}{k - 1}$$\n\nHere, $n = 18$ (streamers) and $k = 6$ (floats). Plugging in the values:\n\n$$\\binom{18 + 6 - 1}{6 - 1} = \\binom{23}{5}$$\n\nCalculating this:\n\n$$\\binom{23}{5} = \\frac{23!}{5! \\cdot 18!} = 33649$$\n\n**Final Answer:** There are $\\boxed{33649}$ unique ways to distribute the streamers.",
+  "topic": "probability",
+  "difficulty": "medium"
+}

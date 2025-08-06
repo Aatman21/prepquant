@@ -1,0 +1,12 @@
+{
+  "title": "Squirrel Snack Swap",
+  "stem_md": "In a sun-dappled forest, a group of squirrels are trading acorns. The eldest squirrel, Nutmeg, will trade her prized golden acorn to the first squirrel who offers at least **9 shiny pebbles**. Each squirrel's offer is an independent, identically distributed exponential random variable with an average of **5 shiny pebbles**. \n\nGiven that Nutmeg *does* trade her golden acorn, what's the probability she receives **15 shiny pebbles or more**? Express your answer as $e^a$ where $a$ is a simplified fraction.",
+  "hints": [
+    "Condition on the fact that the winning offer must already be ≥9 pebbles.",
+    "Use the memoryless property of the exponential distribution to simplify the conditional probability.",
+    "The probability reduces to $P(\\text{Offer} > 6 \\, \\text{pebbles})$ due to memorylessness."
+  ],
+  "detailed_solution_md": "Let $O$ be the number of shiny pebbles offered by a squirrel. We seek:\n\n$$ P(O \\geq 15 \\, | \\, O \\geq 9) $$\n\nBy the **memorylessness** of the exponential distribution, this simplifies to:\n\n$$ P(O \\geq 6) $$\n\nThe CDF of an exponential random variable with mean $\\mu = 5$ is:\n\n$$ P(O \\leq x) = 1 - e^{-x/5} $$\n\nThus:\n\n$$ P(O \\geq 6) = 1 - P(O \\leq 6) $$\n$$ = 1 - \\left(1 - e^{-6/5}\\right) $$\n$$ = e^{-6/5} $$\n\nTherefore, the probability is $\\boxed{e^{-6/5}}$ and $a = -\\frac{6}{5}$.",
+  "topic": "statistics",
+  "difficulty": "easy"
+}

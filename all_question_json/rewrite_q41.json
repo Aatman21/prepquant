@@ -1,0 +1,12 @@
+{
+  "title": "Carnival Prize Wheel Payout",
+  "stem_md": "At a carnival, you spin a colorful prize wheel with **6 equally likely segments** labeled with different prize amounts. You keep spinning until the wheel lands on any segment *except* the smallest prize, and you win the amount shown on the final spin. What is the **expected payout** of this game?\n\n*(Assume the wheel is fair and all non-smallest segments have distinct values.)*",
+  "hints": [
+    "What's the probability the wheel stops on any specific non-smallest segment, given the stopping condition?",
+    "Since the wheel is fair, all valid stopping segments are equally likely. How many are there?",
+    "Calculate the average of the possible payout values, ignoring the smallest prize segment entirely."
+  ],
+  "detailed_solution_md": "**Step 1:** Identify possible payout segments\n- Wheel segments: $\\{s, a, b, c, d, e\\}$ where $s$ is the smallest prize (ignored)\n- Valid stopping segments: $\\{a, b, c, d, e\\}$ (5 equally likely outcomes)\n\n**Step 2:** Compute expected payout\nSince all valid segments are equally likely, the expected payout $E$ is their average:\n$$E = \\frac{a + b + c + d + e}{5}$$\n\n**Step 3:** Substitute uniform distribution values\nFor a standard carnival wheel with consecutive integer prizes (e.g., $a=2, b=3, \\ldots, e=6$):\n$$E = \\frac{2 + 3 + 4 + 5 + 6}{5} = \\frac{20}{5} = 4$$\n\n**Final answer:** $\\boxed{4}$",
+  "topic": "probability",
+  "difficulty": "easy"
+}

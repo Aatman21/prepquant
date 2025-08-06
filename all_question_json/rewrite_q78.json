@@ -1,0 +1,12 @@
+{
+  "title": "First Brushstroke Probability",
+  "stem_md": "In a vibrant art studio, an assistant prepares $n$ canvases by applying either a **bold stroke** (B) or a **thin stroke** (T) to each. The process is random, with equal probability for each stroke type. After completing all $n$ canvases, it's observed that no two consecutive canvases have bold strokes. \n\nGiven this constraint, what is the probability $p(n)$ that the **first canvas** received a bold stroke? Compute $p(10)$.",
+  "hints": [
+    "Hint 1 – Consider how many valid stroke sequences exist for $n$ canvases without consecutive bold strokes.",
+    "Hint 2 – Break down the problem: sequences can start with T (thin) or BT (bold then thin), but not BB.",
+    "Hint 3 – The count of valid sequences follows a recurrence relation similar to the Fibonacci sequence."
+  ],
+  "detailed_solution_md": "Let $A(n)$ be the number of valid stroke sequences of length $n$ with no consecutive bold strokes. We establish base cases:\n\n- $A(1) = 2$ (sequences: B, T)\n- $A(2) = 3$ (sequences: BT, TB, TT; BB is invalid)\n\nFor $n \\geq 3$, a valid sequence either:\n1. Starts with T, followed by any valid sequence of length $n-1$ ⇒ $A(n-1)$ possibilities.\n2. Starts with BT, followed by any valid sequence of length $n-2$ ⇒ $A(n-2)$ possibilities.\n\nThus, the recurrence relation is:\n$$ A(n) = A(n-1) + A(n-2) $$\nThis matches the Fibonacci sequence, shifted by 2 positions. Specifically:\n$$ A(n) = F_{n+2} $$\nwhere $F_k$ is the $k^{th}$ Fibonacci number ($F_1 = 1, F_2 = 1, F_3 = 2$, etc.).\n\n**Probability Calculation:**\n- Total valid sequences: $A(n) = F_{n+2}$.\n- Sequences starting with B must be followed by T (to avoid BB), leaving $n-2$ canvases ⇒ $A(n-2) = F_n$ such sequences.\n- Thus, the probability the first canvas is B:\n$$ p(n) = \\frac{A(n-2)}{A(n)} = \\frac{F_n}{F_{n+2}} $$\n\nFor $n=10$:\n- $F_{10} = 55$, $F_{12} = 144$ (from Fibonacci sequence: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...)\n- Final answer:\n$$ p(10) = \\boxed{\\frac{55}{144}} $$",
+  "topic": "probability",
+  "difficulty": "medium"
+}

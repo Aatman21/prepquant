@@ -1,0 +1,12 @@
+{
+  "title": "Sandcastle Completion Time",
+  "stem_md": "You and your friends are building a sandcastle on the beach, adding one decorative shell at a time. Each shell you add has a random size (from 1 to 6 grains of sand equivalent). You keep adding shells until the **total size of all placed shells** is a multiple of 6 grains. What's the **expected number of shells** you'll need to place?",
+  "hints": [
+    "Hint 1 – Each new shell addition is independent of previous ones.",
+    "Hint 2 – No matter the current total, there's always exactly one shell size (out of six possible) that will make the total a multiple of 6.",
+    "Hint 3 – This is equivalent to waiting for the first success in repeated trials with fixed probability."
+  ],
+  "detailed_solution_md": "Let $T = S_1 + S_2 + \\dots + S_k$ represent the total grain-equivalents after placing $k$ shells, where each $S_i$ is the size of the $i^{th}$ shell.  \n\n**Key Insight**: For any current total $T$ (mod 6), there's exactly **one** shell size (mod 6) that will make the new total $T + S_{\\text{new}}$ divisible by 6. Since shell sizes are uniformly distributed from 1 to 6:  \n\n$$ P(\\text{Total becomes multiple of 6}) = \\frac{1}{6} $$  \n\nThis probability remains constant for each new shell placed, regardless of previous totals. Thus, the number of shells needed follows a **geometric distribution** with success probability $p = \\frac{1}{6}$.  \n\nThe expected value is:  \n\n$$ E[\\text{Shells}] = \\frac{1}{p} = \\boxed{6} $$",
+  "topic": "probability",
+  "difficulty": "medium"
+}

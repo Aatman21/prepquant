@@ -1,0 +1,12 @@
+{
+  "title": "The Treehouse Timekeepers",
+  "stem_md": "In the **Maple Street Treehouse Club**, two members **Berry** and **Chip** kept secret diaries. The club discovered:\n\n1. Berry's last diary entry was made **129 years after** Chip's first entry.\n2. At least one of them was actively writing in **exactly 100 years** of overlapping time.\n3. Chip's final entry was dated **30 years Before Club (BC)**.\n\nWhen did Berry make their *first* diary entry? (Use negative numbers for BC dates, e.g., −100 for 100 BC.)",
+  "hints": [
+    "Sketch two timelines: one for Berry's writing span, one for Chip's. Where does the 129-year gap fit?",
+    "The 100 years of overlap implies the diaries weren't continuously active—there's a gap where neither wrote.",
+    "Calculate the 'dead zone' where neither wrote by subtracting the overlap from the total span (129 − 100 = 29 years). This gap sits between Chip's last entry and Berry's first."
+  ],
+  "detailed_solution_md": "Let's decode the diaries step by step:\n\n1. **Total Span**: Berry's last entry is 129 years after Chip's first entry:  \n   $\\text{Berry}_{\\text{last}} = \\text{Chip}_{\\text{first}} + 129$.\n\n2. **Overlap Constraint**: At least one was writing for exactly 100 years. This means the combined active periods cover 100 years, leaving a gap where neither wrote:  \n   $\\text{Total Span} - \\text{Overlap} = \\text{Gap}$  \n   $129 - 100 = 29$ years.\n\n3. **Gap Placement**: Since Chip's last entry was at 30 BC ($\\text{Chip}_{\\text{last}} = -30$), the 29-year gap must be the time between Chip's last entry and Berry's first entry:  \n   $\\text{Berry}_{\\text{first}} = \\text{Chip}_{\\text{last}} + 29$  \n   $\\text{Berry}_{\\text{first}} = -30 + 29 = -1$ (1 BC).\n\n**Final Answer**: Berry's first diary entry was made in $\\boxed{-1}$ (1 BC).",
+  "topic": "brainteasers",
+  "difficulty": "medium"
+}

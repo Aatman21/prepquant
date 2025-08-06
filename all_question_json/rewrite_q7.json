@@ -1,0 +1,12 @@
+{
+  "title": "The Librarian's Hidden Equation",
+  "stem_md": "In the dim glow of the library's reading lamps, two ancient scrolls labeled $\\alpha$ and $\\beta$ whisper a secret: their lengths satisfy $$\\alpha^2 + \\alpha\\beta + \\beta^2 = \\gamma^2$$ where $\\gamma$ is the shelf number (integer). The archivist seeks the smallest combined length $\\alpha + \\beta$ of these scrolls. What is $\\gamma^2$ when this sum is minimized?",
+  "hints": [
+    "Consider rewriting the equation as $(\\alpha - m\\beta)^2$ for some integer $m$ to find a relationship between the scroll lengths.",
+    "Express $\\beta$ in terms of $\\alpha$ and $m$, then choose $m=2$ to find integer solutions.",
+    "Test small integer values for $\\alpha$ with $m=2$ to find the minimal $\\alpha + \\beta$ that satisfies the equation."
+  ],
+  "detailed_solution_md": "**Step 1:** Rewrite the equation in a squared form:\n$$\\alpha^2 + \\alpha\\beta + \\beta^2 = (\\alpha - m\\beta)^2$$\nExpanding the right side:\n$$\\alpha^2 - 2m\\alpha\\beta + m^2\\beta^2 = \\alpha^2 + \\alpha\\beta + \\beta^2$$\n**Step 2:** Simplify by canceling $\\alpha^2$ and rearranging:\n$$-2m\\alpha\\beta + m^2\\beta^2 = \\alpha\\beta + \\beta^2$$\nDivide by $\\beta$ (since $\\beta > 0$):\n$$-2m\\alpha + m^2\\beta = \\alpha + \\beta$$\n**Step 3:** Solve for $\\beta$:\n$$m^2\\beta - \\beta = \\alpha + 2m\\alpha$$\n$$\\beta(m^2 - 1) = \\alpha(1 + 2m)$$\n$$\\beta = \\frac{\\alpha(1 + 2m)}{m^2 - 1}$$\n**Step 4:** Choose $m=2$ to ensure integer solutions:\n$$\\beta = \\frac{\\alpha(1 + 4)}{4 - 1} = \\frac{5\\alpha}{3}$$\nSet $\\alpha=3$ to make $\\beta$ integer:\n$$\\beta = \\frac{5 \\times 3}{3} = 5$$\n**Step 5:** Verify the equation with $\\alpha=3$, $\\beta=5$:\n$$3^2 + 3 \\times 5 + 5^2 = 9 + 15 + 25 = 49 = 7^2$$\nThus, $\\gamma^2 = \\boxed{49}$ with minimal sum $\\alpha + \\beta = 8$.\n\n*Alternative solution:* For $\\alpha=7$, $\\beta=8$ also yields $49$ but with a larger sum ($15$).",
+  "topic": "brainteasers",
+  "difficulty": "medium"
+}

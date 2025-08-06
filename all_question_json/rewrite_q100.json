@@ -1,0 +1,12 @@
+{
+  "title": "Campfire Log Intersection",
+  "stem_md": "Two sturdy logs, each with a thickness of 1 hand-width, are placed perpendicular to each other in a campfire pit. Their centerlines cross at right angles. Find the total volume of the space where the two logs overlap.",
+  "hints": [
+    "Consider slicing the overlapping region horizontally at different heights. What shape does each slice take?",
+    "For a given height, the slice is a square. Determine the side length of this square in terms of the height.",
+    "Integrate the area of these square slices over the range of possible heights to find the total volume."
+  ],
+  "detailed_solution_md": "Let's model the two logs as cylinders with radius $r = 1$ hand-width, aligned along the $x$ and $z$ axes respectively. Their equations are:\n\n1. $x^2 + y^2 \\leq 1$ (first log)\n2. $y^2 + z^2 \\leq 1$ (second log)\n\nFor a fixed height $y$, the intersection conditions become:\n\n- From the first log: $x^2 \\leq 1 - y^2$\n- From the second log: $z^2 \\leq 1 - y^2$\n\nThis defines a square in the $(x, z)$ plane with side length $2\\sqrt{1 - y^2}$. The area of this square is:\n\n$$ A(y) = \\left(2\\sqrt{1 - y^2}\\right)^2 = 4(1 - y^2) $$\n\nTo find the total volume, integrate $A(y)$ over all possible heights $y$ where the intersection exists ($-1 \\leq y \\leq 1$):\n\n$$ V = \\int_{-1}^{1} 4(1 - y^2) \\, dy $$\n\nCompute the integral step by step:\n\n1. Distribute the 4:\n$$ V = 4 \\int_{-1}^{1} (1 - y^2) \\, dy $$\n\n2. Split the integral:\n$$ V = 4 \\left( \\int_{-1}^{1} 1 \\, dy - \\int_{-1}^{1} y^2 \\, dy \\right) $$\n\n3. Evaluate each part:\n$$ \\int_{-1}^{1} 1 \\, dy = 2 $$\n$$ \\int_{-1}^{1} y^2 \\, dy = \\left. \\frac{y^3}{3} \\right|_{-1}^{1} = \\frac{1}{3} - \\left(-\\frac{1}{3}\\right) = \\frac{2}{3} $$\n\n4. Combine results:\n$$ V = 4 \\left( 2 - \\frac{2}{3} \\right) = 4 \\left( \\frac{6}{3} - \\frac{2}{3} \\right) = 4 \\left( \\frac{4}{3} \\right) = \\frac{16}{3} $$\n\n**Final Answer:** The volume of the overlapping region is $\\boxed{\\dfrac{16}{3}}$ cubic hand-widths.",
+  "topic": "pure math",
+  "difficulty": "medium"
+}

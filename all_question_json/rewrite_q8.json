@@ -1,0 +1,12 @@
+{
+  "title": "Adoption Day Rush",
+  "stem_md": "At a bustling pet rescue center, each day $n$ new pets arrive independently, with each pet equally likely to be a cat or a dog (i.e., $\\text{Unif}(\\{\\text{cat}, \\text{dog}\\})$). The center has a special adoption event when **at least one** of the day's arrivals is a **calico cat** (a rare 4% occurrence among all cats).  \n\nFind the smallest number of daily arrivals $n$ such that the probability of triggering the adoption event is **at least 99%**.  \n\n*Assumptions*:  \n- Calico status is independent across cats.  \n- ‘Calico cat’ implies the pet is both a cat *and* has the calico trait.",
+  "hints": [
+    "Hint 1 – Consider the complement: What’s the probability that *none* of the $n$ arrivals trigger the event?",
+    "Hint 2 – Break it down: First, what’s the probability a single pet is *not* a calico cat? Use uniform distribution properties.",
+    "Hint 3 – Solve $(0.96)^n \\leq 0.01$ for $n$ using logarithms, then round up."
+  ],
+  "detailed_solution_md": "### Step 1: Define the success event  \nLet $p = 0.04$ be the probability a single arrival is a calico cat (given). We want the probability that **at least one** of $n$ arrivals is a calico cat to be $\\geq 0.99$.  \n\n### Step 2: Use the complement rule  \nInstead of calculating the union directly, compute the probability of the complement (no calico cats in $n$ arrivals):  \n$$ 1 - P(\\text{≥1 calico}) = P(\\text{0 calicos}) $$  \nThus, we need:  \n$$ P(\\text{≥1 calico}) = 1 - P(\\text{0 calicos}) \\geq 0.99 $$  \nwhich rearranges to:  \n$$ P(\\text{0 calicos}) \\leq 0.01 $$  \n\n### Step 3: Compute $P(\\text{0 calicos})$  \nFor a single pet:  \n- Probability of *not* being a calico cat: $1 - 0.04 = 0.96$.  \nBy independence across $n$ pets:  \n$$ P(\\text{0 calicos}) = (0.96)^n $$  \n\n### Step 4: Solve for $n$  \nSet $(0.96)^n \\leq 0.01$ and take natural logs:  \n$$ \\ln(0.96^n) \\leq \\ln(0.01) $$  \n$$ n \\ln(0.96) \\leq \\ln(0.01) $$  \nSince $\\ln(0.96) < 0$, divide and reverse the inequality:  \n$$ n \\geq \\frac{\\ln(0.01)}{\\ln(0.96)} $$  \nNumerically:  \n$$ n \\geq \\frac{-4.6052}{-0.0408} \\approx 112.9 $$  \nRound **up** to the nearest integer (since $n$ must be whole and $n=112$ would give $(0.96)^{112} \\approx 0.0101 > 0.01$):  \n\n**Final answer:**  \n$$ \\boxed{n = 113} $$",
+  "topic": "probability",
+  "difficulty": "medium"
+}

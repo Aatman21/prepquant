@@ -1,0 +1,12 @@
+{
+  "title": "Fairground Ribbon Crossings",
+  "stem_md": "At the annual village fair, children are tying colorful ribbons between posts arranged in a large circular fence. Each child picks two posts at random to tie their ribbon between. If $10$ ribbons are tied this way, what is the expected number of times the ribbons will cross each other when viewed from above?",
+  "hints": [
+    "Think about how many unique pairs of ribbons can be formed from the 10 ribbons.",
+    "For any two ribbons, what's the probability their endpoints are arranged in a way that makes them cross?",
+    "The crossing happens when the four endpoints alternate between the two ribbons as you go around the circle."
+  ],
+  "detailed_solution_md": "To find the expected number of crossings between the ribbons:\n\n1. **Total pairs of ribbons**: First, calculate how many unique pairs of ribbons can be formed from the 10 ribbons. This is given by the combination formula:\n   $$\\binom{10}{2} = 45.$$\n\n2. **Probability of crossing for a pair**: For any two ribbons, there are 4 posts involved (two for each ribbon). The number of ways to pair these 4 posts into two ribbons is $\\binom{4}{2} = 6$ (since each ribbon connects two posts). Out of these 6 equally likely pairings, only 2 result in the ribbons crossing each other (when the posts alternate between the two ribbons as you go around the circle). Thus, the probability that two randomly placed ribbons cross is:\n   $$\\frac{2}{6} = \\frac{1}{3}.$$\n\n3. **Expected crossings**: Multiply the number of ribbon pairs by the probability that any given pair crosses:\n   $$45 \\times \\frac{1}{3} = 15.$$\n\n**Final answer**: The expected number of crossings is $\\boxed{15}$.",
+  "topic": "probability",
+  "difficulty": "medium"
+}

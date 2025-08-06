@@ -1,0 +1,12 @@
+{
+  "title": "The Impossible Play Pen",
+  "stem_md": "A volunteer at the Happy Paws Rescue Center was offered a triangular play pen for the dogs. The sides of the pen measure **55 paws**, **62 paws**, and **117 paws** in length. The center budgets **$10 per square paw** for play area materials. What's the total cost for this play pen?",
+  "hints": [
+    "Check if the given side lengths can actually form a triangle first.",
+    "Recall the triangle inequality theorem: the sum of any two sides must be greater than the third side.",
+    "Calculate 55 + 62 and compare it to 117. What does this tell you about the triangle's area?"
+  ],
+  "detailed_solution_md": "Let's analyze the play pen's dimensions step by step:\n\n1. **Check Triangle Validity**: \n   - According to the triangle inequality, for any three lengths to form a triangle, the sum of any two sides must be strictly greater than the third side.\n   - Let's test the given side lengths: $a = 55$ paws, $b = 62$ paws, $c = 117$ paws.\n\n2. **Apply Triangle Inequality**:\n   - Check $a + b > c$: $55 + 62 = 117 \not> 117$ (violates the strict inequality).\n   - Similarly, $a + c = 55 + 117 = 172 > 62$ and $b + c = 62 + 117 = 179 > 55$.\n\n3. **Conclusion**:\n   - Since $55 + 62 = 117$ (not greater than 117), these lengths **cannot form a valid triangle**.\n   - Therefore, the play pen has **zero area**, making the material cost:\n   $$\\text{Cost} = \\text{Area} \\times \\text{Price per square paw} = 0 \\times 10 = \\boxed{0}$$",
+  "topic": "brainteasers",
+  "difficulty": "easy"
+}

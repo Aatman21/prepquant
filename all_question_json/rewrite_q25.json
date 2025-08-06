@@ -1,0 +1,12 @@
+{
+  "title": "Parade Float in a Colorful Zone",
+  "stem_md": "A carnival parade is organized with vibrant zones, each measuring $2$ meters by $2$ meters. A float with a diameter of $1$ meter is placed randomly within one of these zones. What is the probability that the float stays entirely within the boundaries of a single zone, without overlapping into adjacent ones?",
+  "hints": [
+    "Hint 1 – Consider the safe area where the center of the float can be placed without crossing any zone boundaries.",
+    "Hint 2 – The float's radius is $0.5$ meters, so its center must be at least $0.5$ meters away from any edge of the zone.",
+    "Hint 3 – Calculate the area of the safe region where the center can lie and divide it by the total area of the zone."
+  ],
+  "detailed_solution_md": "To determine the probability that the float stays entirely within one zone:\n\n1. **Total Zone Area**: Each zone is $2$ meters by $2$ meters, so the total area is:\n   $$ A_{\\text{total}} = 2 \\times 2 = 4 \\text{ m}^2. $$\n\n2. **Safe Area for Float Center**: The float has a diameter of $1$ meter (radius $0.5$ meters). For the float to stay entirely within the zone, its center must be at least $0.5$ meters away from all edges. This reduces the safe area to a smaller square:\n   $$ \\text{Safe side length} = 2 - 0.5 - 0.5 = 1 \\text{ meter}. $$\n   Thus, the safe area is:\n   $$ A_{\\text{safe}} = 1 \\times 1 = 1 \\text{ m}^2. $$\n\n3. **Probability Calculation**: The probability $P$ is the ratio of the safe area to the total area:\n   $$ P = \\frac{A_{\\text{safe}}}{A_{\\text{total}}} = \\frac{1}{4} = 0.25. $$\n\n**Final Answer**: \n$$ \\boxed{0.25} $$",
+  "topic": "probability",
+  "difficulty": "easy"
+}
