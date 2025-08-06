@@ -1,0 +1,183 @@
+/* Global Styles */
+body {
+  font-family: 'Inter', Roboto, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #3B82F6; /* Bold accent blue */
+}
+.nav button {
+  background: none;
+  border: 1px solid #3B82F6;
+  border-radius: 4px;
+  padding: 6px 12px;
+  color: #3B82F6;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav button:hover {
+  background: #3B82F6;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #e0f2fe, #f0f9ff);
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+}
+.hero .cta {
+  text-decoration: none;
+  background: #3B82F6;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.hero .cta:hover {
+  background: #2563eb;
+}
+
+/* Main Container */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Card Styles */
+.card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Card Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+.badges {
+  display: flex;
+  gap: 10px;
+}
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+.badge.topic {
+  background: #38b2ac;
+}
+.badge.difficulty {
+  background: #ed8936;
+}
+
+/* Problem Stem & Buttons */
+#stem {
+  margin-bottom: 20px;
+}
+.buttons {
+  margin-bottom: 20px;
+}
+.buttons button {
+  background: #3182ce;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background 0.3s, transform 0.2s;
+}
+.buttons button:hover {
+  background: #2b6cb0;
+  transform: translateY(-2px);
+}
+
+/* Hint & Solution Panels */
+.hint, .solution {
+  border-left: 4px solid #63b3ed;
+  background: #f0f9ff;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #718096;
+  padding: 20px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Dark Mode */
+.dark {
+  background: #1F2937;
+  color: #e2e8f0;
+}
+.dark .card {
+  background: #374151;
+  border-color: #4b5563;
+  color: #e2e8f0;
+}
+.dark .header h1, .dark .badge, .dark .buttons button {
+  color: #e2e8f0;
+}
+.dark .hero {
+  background: linear-gradient(135deg, #1e3a8a, #1e40af);
+}
+.dark .hero h1,
+.dark .hero p,
+.dark .logo {
+  color: #fff;
+}
+.dark button {
+  border-color: #3B82F6;
+  color: #3B82F6;
+}
+.dark .cta {
+  background: #3B82F6;
+}

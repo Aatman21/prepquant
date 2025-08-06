@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quant Prep – Master Your Interview</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Marked (Markdown to HTML) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- KaTeX styling and scripts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer 
+    src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, { delimiters: [ { left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false } ] });"></script>
+</head>
+<body>
+  <!-- Header with logo and dark mode toggle (optional) -->
+  <header class="main-header">
+    <div class="logo">Quant Prep</div>
+    <nav class="nav">
+      <button id="darkToggle">Toggle Dark Mode</button>
+    </nav>
+  </header>
+  
+  <!-- Hero section -->
+  <section class="hero">
+    <h1>Master Quants in 15-min Bites</h1>
+    <p>Interactive problems to get you interview-ready.</p>
+    <a class="cta" href="#problems">Try a live problem</a>
+  </section>
+
+  <!-- Main container for problem cards -->
+  <main id="problems" class="container">
+    <p>Loading problems...</p>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <p>Math rendered with KaTeX · Markdown via marked.js</p>
+  </footer>
+  
+  <!-- Link to external JS -->
+  <script src="script.js"></script>
+</body>
+</html>
