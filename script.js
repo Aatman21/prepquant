@@ -212,6 +212,22 @@ function drawChart(total, done, easy, med, hard){
     `<strong>${pct}%</strong><div>done</div>`;
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  // ... your existing code ...
+
+  // Update the pulseUsers span with a random integer
+  const pulseUsersSpan = document.getElementById("pulseUsers");
+  if (pulseUsersSpan) {
+    pulseUsersSpan.textContent = getRandomInt(1, 100);
+  }
+});
+
 /* ===== tiny human nudges ===== */
 function rotateCoachText(){
   if(!coachText) return;
