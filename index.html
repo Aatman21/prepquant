@@ -3,17 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PrepQuant – Question Bank</title>
+  <title>AceQuant – Question Bank</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- HEADER + progress banner -->
   <header class="main-header">
-    <div class="logo">PrepQuant</div>
+    <div class="logo">AceQuant</div>
+    <div id="progressBanner" class="progress-banner"></div>
   </header>
 
-  <main class="container">
-    <h2>Question Bank</h2>
+  <!-- QOTD card -->
+  <section id="qotdHolder" class="container"></section>
 
+  <!-- filter bar -->
+  <section class="container filter-bar">
+    <input id="searchInput" type="text" placeholder="Search title…" />
+    <select id="topicFilter"><option value="all">All Topics</option></select>
+    <select id="diffFilter">
+      <option value="all">All Difficulties</option>
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </section>
+
+  <!-- question table -->
+  <main class="container">
     <table id="questionTable">
       <thead>
         <tr>
