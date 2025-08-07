@@ -3,22 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AceQuant – Question Bank</title>
+  <title>AceQuant · Crack Any Quant Interview</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=DM+Sans:wght@600&display=swap" rel="stylesheet">
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
-  <!-- HEADER + progress banner -->
-  <header class="main-header">
-    <div class="logo">AceQuant</div>
-    <div id="progressBanner" class="progress-banner"></div>
+
+  <!-- HERO (now constrained to container width) -->
+  <header class="hero fade">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <h1>Master Quants — Calm, Focused, Effective.</h1>
+        <p>Real interview problems curated by IITians. <strong>Free until 31 Aug.</strong><br>
+           Smarter than scrolling random blogs; tighter than QuantGuide; deeper than PuzzledQuant.</p>
+        <a class="cta" href="#question-bank">Start Solving</a>
+      </div>
+
+      <div class="chart-shell">
+        <canvas id="progressChart" width="160" height="160"></canvas>
+        <div id="chartLabel"></div>
+      </div>
+    </div>
   </header>
 
-  <!-- QOTD card -->
-  <section id="qotdHolder" class="container"></section>
+  <!-- QOTD -->
+  <section id="qotdHolder" class="container fade"></section>
 
-  <!-- filter bar -->
-  <section class="container filter-bar">
-    <input id="searchInput" type="text" placeholder="Search title…" />
+  <!-- SECTION HEADER -->
+  <section class="container section-head fade" id="question-bank">
+    <h2 class="section-title">Question Bank</h2>
+    <p class="section-sub">Search, filter, and track your progress. Click a row to open a question.</p>
+  </section>
+
+  <!-- COACH STRIP -->
+  <section class="container coach-strip fade">
+    <div class="coach-dot">●</div>
+    <div id="coachText">Welcome back! You’ve got this — small steps beat big bursts.</div>
+  </section>
+
+  <!-- FILTERS (edges aligned with table) -->
+  <section class="container filter-bar fade">
+    <input id="searchInput" type="text" placeholder="🔍 Search title…" />
     <select id="topicFilter"><option value="all">All Topics</option></select>
     <select id="diffFilter">
       <option value="all">All Difficulties</option>
@@ -28,23 +58,34 @@
     </select>
   </section>
 
-  <!-- question table -->
-  <main class="container">
-    <table id="questionTable">
-      <thead>
-        <tr>
-          <th>Status</th>
-          <th>#</th>
-          <th>Title</th>
-          <th>Topic</th>
-          <th>Difficulty</th>
-        </tr>
-      </thead>
-      <tbody id="questionTableBody">
-        <tr><td colspan="5">Loading…</td></tr>
-      </tbody>
-    </table>
+  <!-- TABLE (fixed height card to prevent jumps) -->
+  <main class="container fade">
+    <div class="table-wrap">
+      <table id="questionTable">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>#</th>
+            <th>Title</th>
+            <th>Topic</th>
+            <th>Difficulty</th>
+          </tr>
+        </thead>
+        <tbody id="questionTableBody">
+          <tr><td colspan="5">Loading…</td></tr>
+        </tbody>
+      </table>
+      <div id="emptyState" class="empty-state" hidden>
+        <!-- <div class="empty-emoji">🔎</div>
+        <div>No matching questions.</div> -->
+        <!-- <small>Clear filters or try a different search.</small> -->
+      </div>
+    </div>
   </main>
+
+  <footer class="container footer">
+    <div>Made with 🫶 by students for students. <span id="pulseUsers">17</span> learners practicing right now.</div>
+  </footer>
 
   <script src="script.js"></script>
 </body>

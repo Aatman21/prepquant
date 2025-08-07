@@ -1,50 +1,153 @@
-/* ---------- layout ---------- */
-body{
-  font-family: Arial, sans-serif;
-  margin:0;
-  background:#f7f9fc;
-  color:#333;
+/* ==== palette – royal blue + soft coral (easy to tweak) ==== */
+:root{
+  --accent:       #4F46E5;  /* royal blue */
+  --accent-light: #6366F1;  /* cornflower */
+  --good:         #FB7185;  /* soft coral (solved) */
+  --good-light:   #FDA4AF;
+  --bg:           #F9FAFB;  /* off white */
+  --surface:      #FFFFFF;
+  --txt:          #374151;  /* slate-700 */
+  --muted:        #94A3B8;  /* slate-400 */
+  --radius:       12px;
+  --dur:          .25s cubic-bezier(.25,.8,.5,1);
 }
-.container{max-width:1000px;margin:40px auto;padding:0 20px;}
 
-.main-header{
-  display:flex;justify-content:space-between;align-items:center;
-  background:#ffffff;padding:16px 24px;box-shadow:0 2px 4px rgba(0,0,0,.05);
+/* Base & grid */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:"DM Sans",Inter,sans-serif;margin:0}
+a{color:var(--accent-light);text-decoration:none}
+.container{max-width:1040px;margin-inline:auto;padding-inline:24px}
+
+/* ==== hero (now uses inner container) ==== */
+.hero{
+  background:linear-gradient(140deg,#EEF2FF 0%,#F9FAFB 100%);
+  border-bottom:1px solid #E5E7EB;box-shadow:0 4px 10px rgba(0,0,0,.04);
 }
-.logo{font-size:1.4rem;font-weight:700;color:#2563eb;}
-.progress-banner{font-size:.9rem;color:#555;}
+.hero__inner{
+  display:flex;align-items:center;justify-content:space-between;gap:32px;padding:64px 0 56px;
+}
+.hero__copy{max-width:620px;text-align:left}
+.hero__copy h1{font-size:clamp(2rem,4.8vw,3rem);line-height:1.15;color:var(--accent)}
+.hero__copy p{font-size:1.05rem;line-height:1.6;margin:18px 0 28px}
+.cta{
+  display:inline-block;padding:12px 24px;border-radius:var(--radius);
+  background:var(--accent);color:#fff;font-weight:600;
+  box-shadow:0 8px 20px rgba(79,70,229,.25);transition:transform var(--dur),box-shadow var(--dur)
+}
+.cta:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(79,70,229,.35)}
+.chart-shell{
+  position:relative;width:160px;aspect-ratio:1;border-radius:50%;
+  background:var(--surface);box-shadow:0 6px 16px rgba(0,0,0,.06)
+}
+#chartLabel{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--txt)}
+#chartLabel strong{font-size:1.35rem}
 
-/* ---------- QOTD ---------- */
+/* Stack hero content on narrow screens */
+@media (max-width: 960px){
+  .hero__inner{flex-direction:column;text-align:center}
+  .hero__copy{text-align:center}
+}
+
+/* ==== section header ==== */
+.section-head{margin-top:36px;text-align:center}
+.section-title{font-size:1.75rem;color:#111}
+.section-sub{margin-top:8px;color:var(--muted)}
+
+/* ==== coach strip ==== */
+.coach-strip{
+  margin-top:18px;background:var(--surface);border-radius:9999px;display:flex;align-items:center;gap:10px;
+  padding:10px 14px;box-shadow:0 4px 10px rgba(0,0,0,.05);justify-content:center
+}
+.coach-dot{color:var(--good);font-size:18px;line-height:0}
+
+/* ==== QOTD ==== */
 .qotd-card{
-  background:#fff;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);
-  padding:18px;margin:30px 0;display:flex;justify-content:space-between;align-items:center;
+  margin-top:24px;padding:16px 20px;background:var(--surface);border-radius:var(--radius);
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.05);transition:transform var(--dur)
 }
-.qotd-card a{color:#2563eb;text-decoration:none;font-weight:600;}
-.qotd-card small{display:block;color:#666;margin-top:4px;}
+.qotd-card:hover{transform:translateY(-4px)}
+.qotd-card small{color:var(--muted);display:block;margin-top:2px}
 
-/* ---------- filter bar ---------- */
-.filter-bar{display:flex;gap:12px;margin:24px 0;}
-.filter-bar input, .filter-bar select{
-  padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:.95rem;
+/* ==== filters — EXACT alignment with table ==== */
+.filter-bar{
+  display:flex;
+  width:100%;
+  gap:16px;
+  margin:28px 0 16px;
+  align-items:center;
+  justify-content:flex-start;   /* align left edge with table */
+}
+.filter-bar input,
+.filter-bar select{
+  flex:1 1 0;                   /* share row evenly */
+  min-width:220px;
+  padding:10px 16px;            /* same left/right as table cells */
+  font-size:.95rem;
+  border:1px solid #D1D5DB;
+  border-radius:var(--radius);
+  background:#fff;
+  transition:border var(--dur), box-shadow var(--dur)
+}
+.filter-bar input:focus,
+.filter-bar select:focus{
+  border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.15);outline:none
+}
+@media (max-width: 860px){
+  .filter-bar{ flex-wrap:wrap; }
+  .filter-bar input,
+  .filter-bar select{ flex:1 1 100%; }
 }
 
-table{width:100%;border-collapse:collapse;font-size:15px;}
-thead{background:#e9eef6;}
-th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #d8dee9;}
-tr:hover{background:#f1f5ff;}
-a{color:#2563eb;text-decoration:none;}
-a:hover{text-decoration:underline;}
-.status-cell{cursor:pointer;width:60px;text-align:center;}
+/* ==== table & stable layout (no jumps) ==== */
+.table-wrap{
+  position:relative;
+  background:var(--surface);
+  border-radius:var(--radius);
+  box-shadow:0 8px 18px rgba(0,0,0,.06);
+  padding:0;                 /* no inner padding → lines up with filters */
+  min-height:520px;          /* prevents page shift when filtering */
+  overflow:hidden;
+}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+thead{background:#EEF2FF;font-weight:600}
+th,td{padding:14px 16px;border-bottom:1px solid #E2E8F0;text-align:left}
+tbody tr{
+  transition:transform var(--dur),box-shadow var(--dur),background var(--dur);
+  cursor:pointer;
+}
+tbody tr:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.05);background:#F7F9FF}
+tbody tr .title-link{color:var(--accent-light);text-decoration:none}
+tbody tr .title-link:hover{text-decoration:underline}
+.status-cell{width:60px;text-align:center;font-size:1.15rem;cursor:pointer}
+.status-new{color:var(--muted)}
+.status-open{color:var(--accent-light)}
+.status-done{color:var(--good)}
 
-/* ---------- question page (unchanged) ---------- */
-.question-wrapper h1{margin-top:0;}
-.buttons{margin:20px 0;}
+/* Empty overlay (non-blocking) */
+.empty-state{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;color:var(--muted);text-align:center;background:transparent;pointer-events:none
+}
+.empty-emoji{font-size:2rem;opacity:.9}
+
+/* Footer */
+.footer{display:flex;justify-content:center;align-items:center;color:var(--muted);font-size:.9rem;margin:40px 0}
+
+/* Fade utility */
+.fade{opacity:0;transform:translateY(16px)}
+.appear{animation:fadeIn .6s forwards}
+@keyframes fadeIn{to{opacity:1;transform:none}}
+
+/* ==== Question-page utilities (unchanged) ==== */
+.badge{display:inline-block;padding:4px 10px;border-radius:9999px;font-size:.75rem;font-weight:600;color:#fff;margin-right:6px}
+.badge.topic{background:var(--accent-light)} .badge.difficulty{background:var(--good-light)}
+.hint,.solution{background:#FFF1F2;border-left:4px solid var(--good);padding:12px 16px;border-radius:var(--radius);margin:12px 0;display:none}
 .buttons button,#solveBtn{
-  background:#3182ce;border:none;color:#fff;padding:8px 14px;margin:0 6px 6px 0;
-  border-radius:4px;cursor:pointer;transition:.2s;
+  background:var(--accent-light);color:#fff;font-weight:600;border:none;padding:8px 16px;margin:4px 4px 12px 0;
+  border-radius:var(--radius);cursor:pointer;transition:transform var(--dur),background var(--dur)
 }
-.buttons button:hover,#solveBtn:hover{background:#2563eb;transform:translateY(-2px);}
-.hint,.solution{
-  background:#f0f9ff;border-left:4px solid #63b3ed;border-radius:4px;
-  padding:10px 15px;margin-bottom:10px;display:none;
-}
+.buttons button:hover,#solveBtn:hover{background:var(--accent);transform:translateY(-2px)}
+pre,code{background:#F1F5F9;border-radius:6px;padding:2px 4px;font-family:Menlo,monospace;font-size:.85rem}

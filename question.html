@@ -3,106 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Question · PrepQuant</title>
+  <title>Question · AceQuant</title>
 
-  <!-- Styles & libraries -->
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-
-  <!-- KaTeX core -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"/>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
 </head>
-
 <body>
-  <header class="main-header">
-    <a href="index.html" style="color:#2563eb;text-decoration:none;">← Back to table</a>
-  </header>
 
-  <main class="container question-wrapper" id="question-box">
-    <p>Loading…</p>
-  </main>
+<header class="hero" style="padding:28px 20px;text-align:center">
+  <div class="hero__copy" style="max-width:760px">
+    <h1 style="font-size:2rem;color:#111;margin-bottom:6px">Question</h1>
+    <p class="section-sub" style="margin-top:0">Think first. Then peek at hints. Own the solution.</p>
+  </div>
+</header>
 
-  <script>
-    /* ---------- solved-list helpers ---------- */
-    const getSolved = () =>
-      JSON.parse(localStorage.getItem("solvedQuestions") || "[]");
-    const setSolved = arr =>
-      localStorage.setItem("solvedQuestions", JSON.stringify(arr));
+<main class="container fade" id="box" style="max-width:760px;margin-top:32px">
+  <p>Loading…</p>
+</main>
 
-    /* ---------- load question ---------- */
-    const params = new URLSearchParams(window.location.search);
-    const file   = params.get("q");
-    const box    = document.getElementById("question-box");
+<footer class="container footer">
+  <div>You’re doing great. One problem at a time. 💪</div>
+</footer>
 
-    if (!file) {
-      box.innerHTML = "<p style='color:red'>No question specified.</p>";
-    } else {
-      fetch(`all_question_json/${file}`)
-        .then(r => {
-          if (!r.ok) throw Error("Missing JSON");
-          return r.json();
-        })
-        .then(q => {
-          /* inject HTML */
-          box.innerHTML = `
-            <h1>${q.title}</h1>
-            <p><strong>Topic:</strong> ${q.topic} · <strong>Difficulty:</strong> ${q.difficulty}</p>
-            <button id="solveBtn">Mark Solved</button>
+<script>
+const LS=(k,d)=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d));
+const S =(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 
-            <section>${marked.parse(q.stem_md)}</section>
+const box=document.getElementById("box");
+const file=new URLSearchParams(location.search).get("q");
+if(!file){box.textContent="file missing";throw"";}
 
-            <div class="buttons">
-              ${q.hints.map((_, i) =>
-                `<button onclick="toggle('h${i}')">Hint ${i + 1}</button>`
-              ).join("")}
-              <button onclick="toggle('sol')">Solution</button>
-            </div>
+fetch(`all_question_json/${file}`).then(r=>{
+  if(!r.ok) throw Error("missing json");
+  return r.json();
+}).then(q=>{
+  const hints=Array.isArray(q.hints)?q.hints:[];
+  box.innerHTML=`
+    <h2 style="margin:0 0 8px 0">${q.title}</h2>
+    <p><span class="badge topic">${q.topic||"—"}</span>
+       <span class="badge difficulty">${q.difficulty||"—"}</span></p>
+    <button id="solveBtn">Mark Solved</button>
 
-            ${q.hints.map((h, i) =>
-              `<div id="h${i}" class="hint">${marked.parse(h)}</div>`
-            ).join("")}
+    <section>${marked.parse(q.stem_md||"")}</section>
+    <div class="buttons">
+      ${hints.map((_,i)=>`<button onclick="t('h${i}')">Hint ${i+1}</button>`).join("")}
+      <button onclick="t('sol')">Solution</button>
+    </div>
+    ${hints.map((h,i)=>`<div id="h${i}" class="hint">${marked.parse(h)}</div>`).join("")}
+    <div id="sol" class="solution">${marked.parse(q.detailed_solution_md||"")}</div>
+  `;
 
-            <div id="sol" class="solution">${marked.parse(q.detailed_solution_md)}</div>
-          `;
-
-          /* render math AFTER content is injected */
-          renderMathInElement(box, {
-            delimiters: [
-              { left: "$$", right: "$$", display: true },
-              { left: "$",  right: "$",  display: false }
-            ]
-          });
-
-          /* solved-button logic */
-          const btn    = document.getElementById("solveBtn");
-          let solved   = getSolved();
-          if (solved.includes(file)) btn.textContent = "Unmark Solved";
-
-          btn.onclick = () => {
-            let solved = getSolved();
-            if (solved.includes(file)) {
-              solved = solved.filter(f => f !== file);
-              btn.textContent = "Mark Solved";
-            } else {
-              solved.push(file);
-              btn.textContent = "Unmark Solved";
-            }
-            setSolved(solved);
-          };
-        })
-        .catch(err => {
-          console.error(err);
-          box.innerHTML = "<p style='color:red'>Could not load that question.</p>";
-        });
+  const btn=document.getElementById("solveBtn");
+  let solved=LS("solved",[]);
+  if(solved.includes(file)) btn.textContent="Unmark Solved";
+  btn.onclick=()=>{
+    solved=LS("solved",[]);
+    if(solved.includes(file)){
+      solved=solved.filter(f=>f!==file);
+      btn.textContent="Mark Solved";
+    }else{
+      solved.push(file);
+      btn.textContent="Unmark Solved";
     }
+    S("solved",solved);
+  };
 
-    /* ---------- hint / solution toggle ---------- */
-    function toggle(id) {
-      const el = document.getElementById(id);
-      if (el) el.style.display = el.style.display === "block" ? "none" : "block";
-    }
-  </script>
+  (function wait(){
+    if(typeof renderMathInElement==="function"){
+      renderMathInElement(box,{delimiters:[
+        {left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},
+        {left:"\\(",right:"\\)",display:false},{left:"\\[",right:"\\]",display:true}
+      ],throwOnError:false});
+    }else setTimeout(wait,25);
+  })();
+
+  box.classList.add("appear");
+}).catch(()=>box.textContent="Load error");
+
+function t(id){const e=document.getElementById(id);
+  if(e) e.style.display = e.style.display==="block" ? "none" : "block";
+}
+</script>
 </body>
 </html>
